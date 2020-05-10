@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "next": "next",
-    "dev": "NODE_ENV=development ts-node-dev --ignore-watch=.next --ignore-watch=node_modules --ignore-watch=pages --ignore-watch=src --respawn --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
+    "dev": "NODE_ENV=development nodemon --watch server --exec 'ts-node' --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
     "start": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
     "certconfig": "openssl ecparam -genkey -name secp256r1 -out .private.certconfig.js && openssl ec -in .private.certconfig.js -pubout -out .public.certconfig.js",
     "postcertconfig": "> certconfig.js && echo 'module.exports={PRIVATE:`' >> certconfig.js && cat .private.certconfig.js >> certconfig.js && echo '`,PUBLIC:`' >> certconfig.js && cat .public.certconfig.js >> certconfig.js && echo '`}' >> certconfig.js && rm .private.certconfig.js .public.certconfig.js",
@@ -42,13 +42,13 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "next": "^9.3.6",
+    "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "ts-node": "^8.10.1",
     "type-graphql": "^1.0.0-rc.1",
     "typeorm": "^0.2.24",
     "typescript": "^3.8.3"
   },
-  "devDependencies": {
-    "ts-node-dev": "^1.0.0-pre.44"
-  }
+  "devDependencies": {}
 }
