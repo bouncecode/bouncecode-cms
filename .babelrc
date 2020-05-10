@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": "commonjs",
+          "useBuiltIns": "usage"
+        }
+      }
+    ]
+  ],
+  "plugins": []
+}
