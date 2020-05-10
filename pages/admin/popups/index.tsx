@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const Popups = () => {
   return (
@@ -9,6 +9,6 @@ const Popups = () => {
   );
 };
 
-Popups.Layout = Layout;
+Popups.Layout = AdminLayout;
 
 export default Popups;

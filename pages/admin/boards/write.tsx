@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const BoardsWrite = () => {
   return (
@@ -9,6 +9,6 @@ const BoardsWrite = () => {
   );
 };
 
-BoardsWrite.Layout = Layout;
+BoardsWrite.Layout = AdminLayout;
 
 export default BoardsWrite;

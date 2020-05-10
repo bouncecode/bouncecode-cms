@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "src/lib/theme";
-import { withApollo } from "src/lib/apollo";
-import PageLoading from "src/components/PageLoading";
+import theme from "client/lib/theme";
+import { withApollo } from "client/lib/apollo";
+import { PageLoading } from "client/components/PageLoading";
 
 function MyApp(props) {
   const { Component, pageProps } = props;

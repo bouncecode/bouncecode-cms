@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const PopupsWrite = () => {
   return (
@@ -9,6 +9,6 @@ const PopupsWrite = () => {
   );
 };
 
-PopupsWrite.Layout = Layout;
+PopupsWrite.Layout = AdminLayout;
 
 export default PopupsWrite;

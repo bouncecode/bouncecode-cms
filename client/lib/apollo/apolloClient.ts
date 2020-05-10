@@ -4,7 +4,7 @@ import { HttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import fetch from "isomorphic-unfetch";
 import jwt from "jsonwebtoken";
-import { PORT } from "../../../envconfig";
+import { PORT } from "../../../env.config";
 import { storeToken, parseCookies } from "../token";
 
 export default function createApolloClient(initialState, ctx) {

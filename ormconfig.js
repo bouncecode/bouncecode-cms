@@ -1,4 +1,4 @@
-const { DATABASE } = require("./envconfig");
+const { DATABASE } = require("./env.config");
 
 module.exports = {
   ...DATABASE,

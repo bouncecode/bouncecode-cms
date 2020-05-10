@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { CERT_PUBLIC } from "../../envconfig";
+import { CERT_PUBLIC } from "../../env.config";
 
 const parseAuthHeader = async (authHeader = "") => {
   try {

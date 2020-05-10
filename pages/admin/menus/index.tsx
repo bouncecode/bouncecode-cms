@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const Menus = () => {
   return (
@@ -9,6 +9,6 @@ const Menus = () => {
   );
 };
 
-Menus.Layout = Layout;
+Menus.Layout = AdminLayout;
 
 export default Menus;

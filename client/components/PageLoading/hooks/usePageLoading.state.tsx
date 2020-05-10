@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Router from "next/router";
 
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, LinearProgress } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  appbar: {
-    zIndex: 9999,
-  },
-}));
-
-export default function PageLoading(props) {
-  const classes = useStyles();
+export function usePageLoadingState() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -37,18 +26,5 @@ export default function PageLoading(props) {
     };
   }, []);
 
-  if (loading) {
-    return (
-      <AppBar
-        position="fixed"
-        color="transparent"
-        elevation={0}
-        className={classes.appbar}
-      >
-        <LinearProgress color="secondary" />
-      </AppBar>
-    );
-  } else {
-    return null;
-  }
+  return [loading, setLoading];
 }

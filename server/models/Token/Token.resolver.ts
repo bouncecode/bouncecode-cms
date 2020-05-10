@@ -3,7 +3,7 @@ import { Resolver, Mutation, Arg } from "type-graphql";
 import { TokenObject } from "./Token.object";
 import { UserEntity } from "../User/User.entity";
 import { createHmac } from "crypto";
-import { CERT_PUBLIC, CERT_PRIVATE } from "../../../envconfig";
+import { CERT_PUBLIC, CERT_PRIVATE } from "../../../env.config";
 
 const JWT_ISSUER = process.env.JWT_ISSUER || "";
 

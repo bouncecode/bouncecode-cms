@@ -1,15 +1,15 @@
-let certconfig = null;
+let certs = null;
 try {
-  certconfig = require("./certconfig");
+  certs = require("./config/certs.config");
 } catch (e) {
   throw new Error(
-    "Please generate certconfig.js file using `npm run certconfig`"
+    "Please generate config/certs.config.js file using `npm run certs`"
   );
 }
 
 let dbconfig = {};
 try {
-  dbconfig = require("./dbconfig");
+  dbconfig = require("./config/db.config");
 } catch (e) {}
 
 const isDev = process.env.NODE_ENV === "development";
@@ -17,8 +17,8 @@ const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   PORT: process.env.PORT || 8080,
   DEV: isDev,
-  CERT_PUBLIC: certconfig.PUBLIC,
-  CERT_PRIVATE: certconfig.PRIVATE,
+  CERT_PUBLIC: certs.PUBLIC,
+  CERT_PRIVATE: certs.PRIVATE,
   DATABASE: {
     type: process.env.DB_TYPE,
     host: process.env.DB_HOST,

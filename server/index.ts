@@ -1,5 +1,5 @@
 import next from "./next";
-import { PORT } from "../envconfig";
+import { PORT } from "../env.config";
 
 next()
   .then((server) => {

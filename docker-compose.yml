@@ -5,8 +5,8 @@ services:
     build: .
     restart: on-failure
     volumes:
-      - ./src:/usr/src/app/src
       - ./pages:/usr/src/app/pages
+      - ./client:/usr/src/app/client
       - ./server:/usr/src/app/server
     command: "/bin/sh -c 'yarn dev'"
     ports:

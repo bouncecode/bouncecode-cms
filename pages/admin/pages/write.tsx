@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const PagesWrite = () => {
   return (
@@ -9,6 +9,6 @@ const PagesWrite = () => {
   );
 };
 
-PagesWrite.Layout = Layout;
+PagesWrite.Layout = AdminLayout;
 
 export default PagesWrite;

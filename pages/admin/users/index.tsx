@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "src/components/admin/Layout";
+import { AdminLayout } from "client/components/AdminLayout";
 
 const Users = () => {
   return (
@@ -9,6 +9,6 @@ const Users = () => {
   );
 };
 
-Users.Layout = Layout;
+Users.Layout = AdminLayout;
 
 export default Users;

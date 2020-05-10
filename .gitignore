@@ -1,6 +1,5 @@
 .next
-certconfig.js
-dbconfig.js
+config/*certs.config.js
 
 # Logs
 logs
