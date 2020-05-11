@@ -27,7 +27,6 @@ export default class UserResolver {
 
   @Mutation(() => UserObject)
   async createUser(@Arg("data") data: UserCreateInput) {
-    throw new Error("testmessage");
     return UserEntity.create(data).save();
   }
 
