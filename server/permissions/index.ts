@@ -13,6 +13,7 @@ const permissions = shield({
   Query: {
     "*": deny,
     test: allow,
+    me: rules.isAuthorized,
     user: rules.isAdmin,
     users: rules.isAdmin,
   },

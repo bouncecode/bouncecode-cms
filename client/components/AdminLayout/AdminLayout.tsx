@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 
 // Material Core
 import { useTheme } from "@material-ui/core/styles";
@@ -17,6 +18,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useAdminLayoutStyles } from "./hooks/useAdminLayout.styles";
 import { AdminLayoutDrawer } from "./AdminLayoutDrawer";
 import { useSignOutCallback } from "client/commons/useSignOut.callback";
+import { useMeQuery } from "client/commons/useMe.query";
+import { LinearProgress } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 export function AdminLayout(props) {
   const { container, children } = props;
@@ -24,10 +28,35 @@ export function AdminLayout(props) {
   const classes = useAdminLayoutStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleLogout = useSignOutCallback();
+  const { enqueueSnackbar } = useSnackbar();
+  const { data, loading, error } = useMeQuery({
+    onCompleted: (data) => {
+      if (!data?.me?.isAdmin) {
+        enqueueSnackbar("권한이 없습니다.", { variant: "error" });
+        Router.push("/");
+      }
+    },
+    onError: () => {
+      Router.push("/signin");
+    },
+  });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  if (loading || !data || !data?.me?.isAdmin) {
+    return (
+      <AppBar
+        position="fixed"
+        color="transparent"
+        elevation={0}
+        className={classes.loading}
+      >
+        <LinearProgress color="secondary" />
+      </AppBar>
+    );
+  }
 
   return (
     <div className={classes.root}>
@@ -50,6 +79,11 @@ export function AdminLayout(props) {
           <Typography variant="h6" className={classes.title}>
             앱 관리자
           </Typography>
+          <Hidden smDown>
+            <Button color="inherit" disabled>
+              {data?.me?.email}
+            </Button>
+          </Hidden>
           <Button color="inherit" onClick={handleLogout}>
             로그아웃
           </Button>

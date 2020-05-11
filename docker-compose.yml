@@ -8,6 +8,7 @@ services:
       - ./pages:/usr/src/app/pages
       - ./client:/usr/src/app/client
       - ./server:/usr/src/app/server
+      - ./scripts:/usr/src/app/scripts
     command: "/bin/sh -c 'yarn dev'"
     ports:
       - 8080:8080

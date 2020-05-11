@@ -17,6 +17,8 @@
     "start": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./server/index.ts",
     "certs": "mkdir -p config && openssl ecparam -genkey -name secp256r1 -out config/.private.certs.config.js && openssl ec -in config/.private.certs.config.js -pubout -out config/.public.certs.config.js",
     "postcerts": "> config/certs.config.js && echo 'module.exports={PRIVATE:`' >> config/certs.config.js && cat config/.private.certs.config.js >> config/certs.config.js && echo '`,PUBLIC:`' >> config/certs.config.js && cat config/.public.certs.config.js >> config/certs.config.js && echo '`}' >> config/certs.config.js && rm config/.private.certs.config.js config/.public.certs.config.js",
+    "admin:add": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"  scripts/admin/addAdmin.ts",
+    "admin:reset": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"  scripts/admin/resetAdmin.ts",
     "lint": "tslint --project tsconfig.json",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev"
   },
