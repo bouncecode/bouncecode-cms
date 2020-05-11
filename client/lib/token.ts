@@ -8,18 +8,20 @@ const MUTATION_SIGNOUT = gql`
 `;
 
 export const resetToken = async (client) => {
+  document.cookie = cookie.serialize("access_token", "", {
+    path: "/",
+    maxAge: -1,
+  });
+
+  document.cookie = cookie.serialize("refresh_token", "", {
+    path: "/",
+    maxAge: -1,
+  });
+
   if (client) {
     try {
       await client.mutate({ mutation: MUTATION_SIGNOUT });
     } catch (e) {}
-    document.cookie = cookie.serialize("access_token", "", {
-      path: "/",
-      maxAge: -1,
-    });
-    document.cookie = cookie.serialize("refresh_token", "", {
-      path: "/",
-      maxAge: -1,
-    });
     client.cache.reset();
     await client.reFetchObservableQueries();
   }

@@ -16,12 +16,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 // Styles
 import { useAdminLayoutStyles } from "./hooks/useAdminLayout.styles";
 import { AdminLayoutDrawer } from "./AdminLayoutDrawer";
+import { useSignOutCallback } from "client/commons/useSignOut.callback";
 
 export function AdminLayout(props) {
   const { container, children } = props;
   const theme = useTheme();
   const classes = useAdminLayoutStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleLogout = useSignOutCallback();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -48,7 +50,9 @@ export function AdminLayout(props) {
           <Typography variant="h6" className={classes.title}>
             앱 관리자
           </Typography>
-          <Button color="inherit">로그아웃</Button>
+          <Button color="inherit" onClick={handleLogout}>
+            로그아웃
+          </Button>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">

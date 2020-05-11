@@ -5,7 +5,8 @@ import { setContext } from "apollo-link-context";
 import fetch from "isomorphic-unfetch";
 import jwt from "jsonwebtoken";
 import { PORT } from "../../../env.config";
-import { storeToken, parseCookies } from "../token";
+import { storeToken, parseCookies } from "client/lib/token";
+import gql from "graphql-tag";
 
 export default function createApolloClient(initialState, ctx) {
   const uri = Boolean(ctx) ? `http://localhost:${PORT}/graphql` : "/graphql";
@@ -26,21 +27,16 @@ export default function createApolloClient(initialState, ctx) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operationName: "token",
-          query: `
-          mutation token(
-            $token: String!
-          ) {
-            token(data: {
-              grant_type: "refresh_token",
-              refresh_token: $token
-            }) {
-              access_token
+          operationName: null,
+          query: gql`
+            mutation($refreshToken: String!) {
+              refreshToken(refreshToken: $refreshToken) {
+                access_token
+              }
             }
-          }
-        `,
+          `.loc.source.body,
           variables: {
-            token: refresh_token,
+            refreshToken: refresh_token,
           },
         }),
       });

@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const BoardsWrite = () => {
+const BoardsWritePage = () => {
   return (
     <>
       <h1>게시판 추가</h1>
@@ -9,6 +9,6 @@ const BoardsWrite = () => {
   );
 };
 
-BoardsWrite.Layout = AdminLayout;
+BoardsWritePage.Layout = AdminLayout;
 
-export default BoardsWrite;
+export default BoardsWritePage;

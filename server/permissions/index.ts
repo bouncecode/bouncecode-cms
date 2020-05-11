@@ -1,4 +1,4 @@
-import { rule, shield, and, or, not } from "graphql-shield";
+import { deny, allow, rule, shield, and, or, not } from "graphql-shield";
 
 const rules = {
   isAuthorized: rule()(async (parent, args, ctx, info) => {
@@ -11,10 +11,18 @@ const rules = {
 
 const permissions = shield({
   Query: {
+    "*": deny,
+    test: allow,
     user: rules.isAdmin,
     users: rules.isAdmin,
   },
   Mutation: {
+    "*": deny,
+    test: allow,
+    createToken: allow,
+    refreshToken: allow,
+    createUser: allow,
+    updateUser: rules.isAdmin,
     createBoard: rules.isAdmin,
     updateBoard: rules.isAdmin,
     deleteBoard: rules.isAdmin,
@@ -27,8 +35,6 @@ const permissions = shield({
     createPopup: rules.isAdmin,
     updatePopup: rules.isAdmin,
     deletePopup: rules.isAdmin,
-    createUser: rules.isAdmin,
-    updateUser: rules.isAdmin,
   },
 });
 

@@ -7,7 +7,7 @@ export class UserObject {
   id: number;
 
   @Field()
-  username: string;
+  email: string;
 
   @Field()
   isAdmin: boolean;

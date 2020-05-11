@@ -4,25 +4,23 @@ import { TokenObject } from "./Token.object";
 import { UserEntity } from "../User/User.entity";
 import { createHmac } from "crypto";
 import { CERT_PUBLIC, CERT_PRIVATE } from "../../../env.config";
+import { TokenCreateInput } from "./inputs";
 
 const JWT_ISSUER = process.env.JWT_ISSUER || "";
 
 @Resolver()
 export class TokenResolver {
   @Mutation(() => TokenObject)
-  async createToken(
-    @Arg("username") username: string,
-    @Arg("password") password: string
-  ) {
-    const user = await UserEntity.findOne({ username });
-    if (user.password !== createHmac("sha256", password).digest("hex")) {
+  async createToken(@Arg("data") data: TokenCreateInput) {
+    const user = await UserEntity.findOne({ email: data.email });
+    if (user.password !== createHmac("sha256", data.password).digest("hex")) {
       throw new Error("Invalid password.");
     }
 
     const refresh_token = await jwt.sign(
       {
         id: user.id,
-        username: user.username,
+        email: user.email,
         isAdmin: user.isAdmin,
       },
       CERT_PRIVATE,
@@ -55,7 +53,7 @@ export class TokenResolver {
     const access_token = await jwt.sign(
       {
         id: user.id,
-        username: user.username,
+        email: user.email,
         isAdmin: user.isAdmin,
       },
       CERT_PRIVATE,

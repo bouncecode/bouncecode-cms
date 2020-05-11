@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const Boards = () => {
+const BoardsPage = () => {
   return (
     <>
       <h1>게시판 목록</h1>
@@ -9,6 +9,6 @@ const Boards = () => {
   );
 };
 
-Boards.Layout = AdminLayout;
+BoardsPage.Layout = AdminLayout;
 
-export default Boards;
+export default BoardsPage;

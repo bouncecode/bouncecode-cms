@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const Faqs = () => {
+const FaqsPage = () => {
   return (
     <>
       <h1>FAQ 목록</h1>
@@ -9,6 +9,6 @@ const Faqs = () => {
   );
 };
 
-Faqs.Layout = AdminLayout;
+FaqsPage.Layout = AdminLayout;
 
-export default Faqs;
+export default FaqsPage;

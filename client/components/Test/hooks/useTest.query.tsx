@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
 const TEST_QUERY = gql`
-  query TEST($message: String!) {
+  query($message: String!) {
     test(message: $message) {
       message
     }

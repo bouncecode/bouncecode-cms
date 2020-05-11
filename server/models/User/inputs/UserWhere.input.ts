@@ -6,5 +6,5 @@ export class UserWhereInput {
   id?: number;
 
   @Field({ nullable: true })
-  username?: string;
+  email?: string;
 }

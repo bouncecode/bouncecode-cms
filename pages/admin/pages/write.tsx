@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const PagesWrite = () => {
+const PagesWritePage = () => {
   return (
     <>
       <h1>페이지 추가</h1>
@@ -9,6 +9,6 @@ const PagesWrite = () => {
   );
 };
 
-PagesWrite.Layout = AdminLayout;
+PagesWritePage.Layout = AdminLayout;
 
-export default PagesWrite;
+export default PagesWritePage;

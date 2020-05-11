@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const Users = () => {
+const UsersPage = () => {
   return (
     <>
       <h1>사용자 관리</h1>
@@ -9,6 +9,6 @@ const Users = () => {
   );
 };
 
-Users.Layout = AdminLayout;
+UsersPage.Layout = AdminLayout;
 
-export default Users;
+export default UsersPage;

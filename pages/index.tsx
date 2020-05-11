@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Router from "next/router";
 
-export default function Index() {
+export default function IndexPage() {
   useEffect(() => {
-    Router.push("/admin");
+    Router.push("/signin");
   });
 
   return <div />;

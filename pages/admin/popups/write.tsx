@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const PopupsWrite = () => {
+const PopupsWritePage = () => {
   return (
     <>
       <h1>팝업 추가</h1>
@@ -9,6 +9,6 @@ const PopupsWrite = () => {
   );
 };
 
-PopupsWrite.Layout = AdminLayout;
+PopupsWritePage.Layout = AdminLayout;
 
-export default PopupsWrite;
+export default PopupsWritePage;

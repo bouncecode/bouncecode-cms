@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 
-const Popups = () => {
+const PopupsPage = () => {
   return (
     <>
       <h1>팝업 목록</h1>
@@ -9,6 +9,6 @@ const Popups = () => {
   );
 };
 
-Popups.Layout = AdminLayout;
+PopupsPage.Layout = AdminLayout;
 
-export default Popups;
+export default PopupsPage;

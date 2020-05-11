@@ -2,7 +2,7 @@ import React from "react";
 import { AdminLayout } from "client/components/AdminLayout";
 import { Test } from "client/components/Test";
 
-const Settings = () => {
+const SettingsPage = () => {
   return (
     <>
       <h1>사이트 설정</h1>
@@ -11,6 +11,6 @@ const Settings = () => {
   );
 };
 
-Settings.Layout = AdminLayout;
+SettingsPage.Layout = AdminLayout;
 
-export default Settings;
+export default SettingsPage;

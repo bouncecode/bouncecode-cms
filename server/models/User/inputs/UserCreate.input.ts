@@ -4,7 +4,7 @@ import GraphQLJSON from "graphql-type-json";
 @InputType()
 export class UserCreateInput {
   @Field()
-  username: string;
+  email: string;
 
   @Field()
   password: string;
