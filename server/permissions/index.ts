@@ -16,6 +16,7 @@ const permissions = shield({
     me: rules.isAuthorized,
     user: rules.isAdmin,
     users: rules.isAdmin,
+    usersCount: rules.isAdmin,
   },
   Mutation: {
     "*": deny,
