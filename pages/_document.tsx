@@ -8,35 +8,36 @@ import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/styles";
 
-function MyDocument() {
-  return (
-    <html lang="en">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta name="theme-color" content="#000000" />
-        {/* <link rel="shortcut icon" href={"/assets/img/favicon.png"} /> */}
-        {/* <link
+class MyDocument extends Document {
+  render() {
+    return (
+      <html lang="en">
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <meta name="theme-color" content="#000000" />
+          {/* <link rel="shortcut icon" href={"/assets/img/favicon.png"} /> */}
+          {/* <link
             rel="apple-touch-icon"
             sizes="76x76"
             href={"/assets/img/apple-icon.png"}
           /> */}
-        {/* Fonts and icons */}
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
-        />
-        <link
-          href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-          rel="stylesheet"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+          {/* Fonts and icons */}
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+          />
+          <link
+            href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+            rel="stylesheet"
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,unsupported:true,api:2020.04 }; 
               function $buo_f(){ 
               var e = document.createElement("script"); 
@@ -46,15 +47,16 @@ function MyDocument() {
               try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
               catch(e){window.attachEvent("onload", $buo_f)}
             `,
-          }}
-        />
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </html>
-  );
+            }}
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
+  }
 }
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
