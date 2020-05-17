@@ -19,8 +19,8 @@ try {
   dbconfig = require("./config/db.config");
 } catch (e) {}
 
-const isDev = process.env.NODE_ENV === "development";
 const isTest = process.env.NODE_ENV === "test";
+const isDev = isTest || process.env.NODE_ENV === "development";
 
 if (isTest) {
   dbconfig = {
