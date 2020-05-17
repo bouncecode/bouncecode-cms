@@ -14,8 +14,8 @@ const ME_QUERY = gql`
       email
       isAdmin
       payload
-      createdAt
-      updatedAt
+      createdDate
+      updatedDate
     }
   }
 `;

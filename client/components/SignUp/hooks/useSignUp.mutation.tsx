@@ -16,8 +16,8 @@ const CREATE_USER = gql`
       email
       isAdmin
       payload
-      createdAt
-      updatedAt
+      createdDate
+      updatedDate
     }
   }
 `;
