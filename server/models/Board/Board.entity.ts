@@ -20,7 +20,7 @@ export class BoardEntity extends BaseEntity {
   @PrimaryColumn()
   id: string;
 
-  @Column("simple-json", { nullable: true })
+  @Column("json", { nullable: true })
   payload?: any;
 
   @CreateDateColumn()

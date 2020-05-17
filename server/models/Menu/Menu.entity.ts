@@ -28,7 +28,7 @@ export class MenuEntity extends BaseEntity {
   @Column()
   index: number;
 
-  @Column("simple-json", { nullable: true })
+  @Column("json", { nullable: true })
   payload?: any;
 
   @CreateDateColumn()

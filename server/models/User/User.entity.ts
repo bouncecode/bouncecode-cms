@@ -38,7 +38,7 @@ export class UserEntity extends BaseEntity {
   @Column({ default: false })
   isAdmin: boolean;
 
-  @Column("simple-json", { nullable: true })
+  @Column("json", { nullable: true })
   payload?: any;
 
   @CreateDateColumn()

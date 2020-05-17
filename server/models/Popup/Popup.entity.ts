@@ -25,7 +25,7 @@ export class PopupEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column("simple-json", { nullable: true })
+  @Column("json", { nullable: true })
   payload?: any;
 
   @CreateDateColumn()
