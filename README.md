@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/bouncecode/bouncecode-cms.svg?branch=master)](https://travis-ci.com/bouncecode/bouncecode-cms)
+
 # BounceCode CMS
 
 궁금하신게 있으시면 언제든 말씀해주세요.
