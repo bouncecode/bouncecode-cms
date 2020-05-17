@@ -30,11 +30,15 @@ export class UserResolver {
    */
   @Query(() => UserObject)
   async me(@Ctx() ctx: Context) {
-    return UserEntity.findOne({
-      where: {
-        id: ctx.user.id,
-      },
-    });
+    try {
+      return await UserEntity.findOne({
+        where: {
+          id: ctx.user.id,
+        },
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -44,9 +48,13 @@ export class UserResolver {
    */
   @Query(() => UserObject)
   async user(@Arg("where") where: UserWhereInput) {
-    return UserEntity.findOne({
-      where,
-    });
+    try {
+      return await UserEntity.findOne({
+        where,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -60,11 +68,15 @@ export class UserResolver {
     @Arg("skip") skip: number,
     @Arg("take") take: number
   ) {
-    return UserEntity.find({
-      where,
-      skip,
-      take,
-    });
+    try {
+      return await UserEntity.find({
+        where,
+        skip,
+        take,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -74,7 +86,11 @@ export class UserResolver {
    */
   @Mutation(() => UserObject)
   async createUser(@Arg("data") data: UserCreateInput) {
-    return UserEntity.create(data).save();
+    try {
+      return await UserEntity.create(data).save();
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   /**
@@ -87,6 +103,23 @@ export class UserResolver {
     @Arg("where") where: UserWhereInput,
     @Arg("data") data: UserUpdateInput
   ) {
-    return UserEntity.update(where, data);
+    try {
+      return await UserEntity.update(where, data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  /**
+   * User 정보를 삭제합니다.
+   *
+   * @author BounceCode, Inc.
+   */
+  async deleteUser(@Arg("where") where: UserWhereInput) {
+    try {
+      return await UserEntity.delete(where);
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

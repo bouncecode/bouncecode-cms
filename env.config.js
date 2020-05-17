@@ -24,7 +24,7 @@ const isTest = process.env.NODE_ENV === "test";
 
 if (isTest) {
   dbconfig = {
-    dropSchema: true,
+    // dropSchema: true,
     logging: false,
   };
 }
