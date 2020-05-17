@@ -23,7 +23,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev"
   },
   "author": "BounceCode, Inc.",
-  "license": "AGPL-3.0",
+  "license": "GPL-3.0",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@apollo/react-ssr": "^3.1.5",
