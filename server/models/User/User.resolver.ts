@@ -74,12 +74,7 @@ export class UserResolver {
    */
   @Mutation(() => UserObject)
   async createUser(@Arg("data") data: UserCreateInput) {
-    try {
-      console.log(data);
-      return await UserEntity.create(data).save();
-    } catch (e) {
-      console.log(e);
-    }
+    return UserEntity.create(data).save();
   }
 
   /**
