@@ -13,7 +13,8 @@ import { UserObject } from "./objects/User.object";
 import { UserCreateInput } from "./inputs/UserCreate.input";
 import { UserUpdateInput } from "./inputs/UserUpdate.input";
 import { UserWhereInput } from "./inputs/UserWhere.input";
-import { Context } from "server/express";
+import { Context } from "../../express";
+import { UpdateResultObject } from "../../commons/UpdateResult.object";
 
 /**
  * User 와 관련된 요청을 처리합니다.
@@ -21,7 +22,7 @@ import { Context } from "server/express";
  * @author BounceCode, Inc.
  */
 @Resolver()
-export default class UserResolver {
+export class UserResolver {
   /**
    * 자신의 정보를 가져옵니다.
    *
@@ -81,7 +82,7 @@ export default class UserResolver {
    *
    * @author BounceCode, Inc.
    */
-  @Mutation(() => UserObject)
+  @Mutation(() => UpdateResultObject)
   async updateUser(
     @Arg("where") where: UserWhereInput,
     @Arg("data") data: UserUpdateInput

@@ -18,6 +18,6 @@ export class BoardItemCreateInput extends BaseEntity {
   @Field()
   boardId: string;
 
-  @Field(() => GraphQLJSON)
-  payload: object;
+  @Field(() => GraphQLJSON, { nullable: true })
+  payload?: any;
 }

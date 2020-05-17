@@ -21,5 +21,5 @@ export class MenuUpdateInput {
   index?: number;
 
   @Field(() => GraphQLJSON, { nullable: true })
-  payload?: object;
+  payload?: any;
 }

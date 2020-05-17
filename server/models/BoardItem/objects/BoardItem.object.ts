@@ -21,5 +21,5 @@ export class BoardItemObject {
   boardId: string;
 
   @Field(() => GraphQLJSON, { nullable: true })
-  payload: object;
+  payload?: any;
 }

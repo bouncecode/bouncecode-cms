@@ -13,7 +13,7 @@ import { CERT_PUBLIC } from "../../env.config";
  *
  * @author BounceCode, Inc.
  */
-const parseAuthHeader = async (authHeader = "") => {
+export const parseAuthHeader = async (authHeader = "") => {
   try {
     const token = authHeader.replace(/Bearer /i, "");
     const jwtObj = await jwt.verify(token, CERT_PUBLIC);
@@ -21,5 +21,3 @@ const parseAuthHeader = async (authHeader = "") => {
   } catch (e) {}
   return null;
 };
-
-export default parseAuthHeader;

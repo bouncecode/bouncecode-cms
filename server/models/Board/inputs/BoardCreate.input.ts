@@ -17,6 +17,6 @@ export class BoardCreateInput {
   @Field()
   id: string;
 
-  @Field(() => GraphQLJSON)
-  payload: object;
+  @Field(() => GraphQLJSON, { nullable: true })
+  payload?: any;
 }

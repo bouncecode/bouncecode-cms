@@ -18,5 +18,5 @@ export class PopupObject {
   id: number;
 
   @Field(() => GraphQLJSON, { nullable: true })
-  payload: object;
+  payload?: any;
 }

@@ -20,6 +20,16 @@ try {
 } catch (e) {}
 
 const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
+
+if (isTest) {
+  dbconfig = {
+    type: "sqlite",
+    database: ":memory:",
+    dropSchema: true,
+    logging: false,
+  };
+}
 
 module.exports = {
   PORT: process.env.PORT || 8080,

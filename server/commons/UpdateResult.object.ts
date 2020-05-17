@@ -5,7 +5,7 @@
  */
 
 import { ObjectType, Field } from "type-graphql";
-import { DeleteResult } from "typeorm";
+import { UpdateResult } from "typeorm";
 
 /**
  * GraphQL Resolver 에서 반환되는 데이터를 확인하기위한 ObjectType 입니다.
@@ -13,7 +13,11 @@ import { DeleteResult } from "typeorm";
  * @author BounceCode, Inc.
  */
 @ObjectType()
-export class DeleteResultObject extends DeleteResult {
+export class UpdateResultObject extends UpdateResult {
+  /**
+   * Number of affected rows/documents
+   * Not all drivers support this
+   */
   @Field()
-  affected?: number | null;
+  affected?: number;
 }

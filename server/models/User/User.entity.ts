@@ -14,6 +14,8 @@ import {
   BeforeInsert,
   BeforeUpdate,
   AfterLoad,
+  DeleteDateColumn,
+  VersionColumn,
 } from "typeorm";
 import { createHmac } from "crypto";
 
@@ -36,14 +38,20 @@ export class UserEntity extends BaseEntity {
   @Column({ default: false })
   isAdmin: boolean;
 
-  @Column("json", { nullable: true })
-  payload?: object;
+  @Column("simple-json", { nullable: true })
+  payload?: any;
 
-  @CreateDateColumn({ type: "timestamp" })
-  createdAt: Date;
+  @CreateDateColumn()
+  createdDate: Date;
 
-  @UpdateDateColumn({ type: "timestamp" })
-  updatedAt: Date;
+  @UpdateDateColumn()
+  updatedDate: Date;
+
+  @DeleteDateColumn()
+  deletedDate: Date;
+
+  @VersionColumn()
+  version: number;
 
   // start: hash password
   private tempPassword: string;

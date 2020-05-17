@@ -24,11 +24,14 @@ export class UserObject {
   isAdmin: boolean;
 
   @Field(() => GraphQLJSON, { nullable: true })
-  payload?: object;
+  payload?: any;
 
   @Field()
-  createdAt: Date;
+  createdDate: Date;
 
   @Field()
-  updatedAt: Date;
+  updatedDate: Date;
+
+  @Field()
+  deletedDate: Date;
 }

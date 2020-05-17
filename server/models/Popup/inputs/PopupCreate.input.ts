@@ -14,6 +14,6 @@ import GraphQLJSON from "graphql-type-json";
  */
 @InputType()
 export class PopupCreateInput {
-  @Field(() => GraphQLJSON)
-  payload: object;
+  @Field(() => GraphQLJSON, { nullable: true })
+  payload?: any;
 }

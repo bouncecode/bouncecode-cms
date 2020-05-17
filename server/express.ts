@@ -10,8 +10,8 @@ import { ApolloServer } from "apollo-server-express";
 import { applyMiddleware } from "graphql-middleware";
 import { buildSchemaSync, NonEmptyArray } from "type-graphql";
 import permissions from "./permissions";
-import parseAuthHeader from "./lib/parseAuthHeader";
-import connectDatabase from "./lib/connectDatabase";
+import { parseAuthHeader } from "./lib/parseAuthHeader";
+import { connectDatabase } from "./lib/connectDatabase";
 
 /**
  * GraphQL Resolver 에 해당하는 모든 파일을 가져옵니다.

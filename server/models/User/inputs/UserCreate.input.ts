@@ -21,5 +21,5 @@ export class UserCreateInput {
   password: string;
 
   @Field(() => GraphQLJSON, { nullable: true })
-  payload?: object;
+  payload?: any;
 }

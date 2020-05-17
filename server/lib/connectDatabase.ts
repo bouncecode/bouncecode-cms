@@ -4,7 +4,7 @@
  * @module server.lib
  */
 
-import { createConnection, getConnectionManager } from "typeorm";
+import { createConnection, getConnectionManager, BaseEntity } from "typeorm";
 import seeds from "../../seeds";
 
 /**
@@ -13,7 +13,7 @@ import seeds from "../../seeds";
  *
  * @author BounceCode, Inc.
  */
-const connectDatabase = async () => {
+export const connectDatabase = async () => {
   try {
     if (getConnectionManager().get().isConnected) {
       return;
@@ -23,5 +23,3 @@ const connectDatabase = async () => {
   await createConnection();
   await seeds();
 };
-
-export default connectDatabase;

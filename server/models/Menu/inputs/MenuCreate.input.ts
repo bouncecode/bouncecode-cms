@@ -20,6 +20,6 @@ export class MenuCreateInput {
   @Field()
   index: number;
 
-  @Field(() => GraphQLJSON)
-  payload: object;
+  @Field(() => GraphQLJSON, { nullable: true })
+  payload?: any;
 }
