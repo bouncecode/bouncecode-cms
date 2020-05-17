@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.ResetPassword.hooks
+ */
+
 import { useCallback } from "react";
 // import firebase from "firebase";
 import { useSnackbar } from "notistack";

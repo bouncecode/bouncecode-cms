@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.SignIn.hooks
+ */
+
 import { useEffect } from "react";
 import { useFormik, FormikConfig, FormikValues } from "formik";
 import * as Yup from "yup";

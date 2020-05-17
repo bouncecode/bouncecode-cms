@@ -1,11 +1,18 @@
+/**
+ * BoardItem 에 대한 Model 입니다.
+ *
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.BoardItem
+ * @preferred
+ */
+
 import { Resolver, Query, Mutation, Ctx, Arg } from "type-graphql";
 import { BoardItemEntity } from "./BoardItem.entity";
-import { BoardItemObject } from "./BoardItem.object";
-import {
-  BoardItemCreateInput,
-  BoardItemUpdateInput,
-  BoardItemWhereInput,
-} from "./inputs";
+import { BoardItemObject } from "./objects/BoardItem.object";
+import { BoardItemCreateInput } from "./inputs/BoardItemCreate.input";
+import { BoardItemUpdateInput } from "./inputs/BoardItemUpdate.input";
+import { BoardItemWhereInput } from "./inputs/BoardItemWhere.input";
 import { DeleteResultObject } from "../../commons/DeleteResult.object";
 
 @Resolver()

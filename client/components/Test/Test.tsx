@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.Test
+ */
+
 import React from "react";
 import { useTestQuery } from "./hooks/useTest.query";
 

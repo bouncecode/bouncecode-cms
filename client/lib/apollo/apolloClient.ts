@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.lib.apollo
+ */
+
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
@@ -8,7 +14,12 @@ import { PORT } from "../../../env.config";
 import { storeToken, parseCookies } from "client/lib/token";
 import gql from "graphql-tag";
 
-export default function createApolloClient(initialState, ctx) {
+/**
+ * ApolloClient 를 만들기 위한 함수입니다.
+ *
+ * @author BounceCode, Inc.
+ */
+function createApolloClient(initialState, ctx) {
   const uri = Boolean(ctx) ? `http://localhost:${PORT}/graphql` : "/graphql";
 
   const getToken = async ({ access_token, refresh_token }) => {
@@ -82,3 +93,5 @@ export default function createApolloClient(initialState, ctx) {
     cache: new InMemoryCache().restore(initialState),
   });
 }
+
+export default createApolloClient;

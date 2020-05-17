@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.Menu
+ */
+
 import {
   Entity,
   Column,

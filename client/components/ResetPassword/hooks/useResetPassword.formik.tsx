@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.ResetPassword.hooks
+ */
+
 import { useEffect } from "react";
 import { useFormik, FormikValues, FormikConfig } from "formik";
 import * as Yup from "yup";

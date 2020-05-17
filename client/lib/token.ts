@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.lib
+ */
+
 import cookie from "cookie";
 import gql from "graphql-tag";
 
@@ -7,6 +13,11 @@ const MUTATION_SIGNOUT = gql`
   }
 `;
 
+/**
+ * 웹브라우저에 저장되어있는 토큰을 초기화합니다.
+ *
+ * @author BounceCode, Inc.
+ */
 export const resetToken = async (client) => {
   document.cookie = cookie.serialize("access_token", "", {
     path: "/",
@@ -27,6 +38,11 @@ export const resetToken = async (client) => {
   }
 };
 
+/**
+ * 웹브라우저에 토큰을 저장합니다.
+ *
+ * @author BounceCode, Inc.
+ */
 export const storeToken = async (
   client,
   { access_token = undefined, refresh_token = undefined }
@@ -49,6 +65,11 @@ export const storeToken = async (
   }
 };
 
+/**
+ * 웹브라우저에 저장되어있는 토큰을 가져옵니다.
+ *
+ * @author BounceCode, Inc.
+ */
 export const parseCookies = (req, options = {}) => {
   const cookieData = req ? req.headers.cookie || "" : document.cookie;
   return cookie.parse(cookieData, options);

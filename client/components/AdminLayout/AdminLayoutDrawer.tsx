@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.AdminLayout
+ */
+
 import Router from "next/router";
 
 // Material Core

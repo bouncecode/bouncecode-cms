@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.PageLoading
+ */
+
 import React from "react";
 
 // @material-ui/core components

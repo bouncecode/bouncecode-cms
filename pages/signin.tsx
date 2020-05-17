@@ -1,6 +1,14 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module pages
+ */
+
 import React from "react";
 import { SignIn } from "client/components/SignIn";
 
-export default function SignInPage() {
+function SignInPage() {
   return <SignIn />;
 }
+
+export default SignInPage;

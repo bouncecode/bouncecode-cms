@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.User
+ */
+
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -11,6 +17,11 @@ import {
 } from "typeorm";
 import { createHmac } from "crypto";
 
+/**
+ * 데이터베이스와 연결된 Entity 입니다.
+ *
+ * @author BounceCode, Inc.
+ */
 @Entity()
 export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()

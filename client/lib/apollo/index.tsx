@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.lib.apollo
+ */
+
 import React from "react";
 import App from "next/app";
 import Head from "next/head";

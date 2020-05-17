@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.SignUp.hooks
+ */
+
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useSignUpStyles = makeStyles((theme) => ({

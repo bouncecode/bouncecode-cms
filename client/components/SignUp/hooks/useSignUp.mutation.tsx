@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.SignUp.hooks
+ */
+
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 import { useSnackbar } from "notistack";

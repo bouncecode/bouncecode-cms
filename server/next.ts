@@ -1,15 +1,37 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server
+ */
+
 import * as url from "url";
 import next from "next";
-import server from "./express";
+import expressApp from "./express";
 
+/**
+ * 개발환경인지 여부를 확인합니다.
+ *
+ * @author BounceCode, Inc.
+ */
 const dev = process.env.NODE_ENV === "development";
+
+/**
+ * Next.js SSR 서버를 설정합니다.
+ *
+ * @author BounceCode, Inc.
+ */
 const app = next({ dev, conf: { distDir: ".next" } });
 const handle = app.getRequestHandler();
 
-export default async () => {
+/**
+ * Next.js 를 {@link expressApp} 으로 실행합니다.
+ *
+ * @author BounceCode, Inc.
+ */
+const nextApp = async () => {
   await app.prepare();
 
-  server.get("*", (req: any, res: any) => {
+  expressApp.get("*", (req: any, res: any) => {
     // Be sure to pass `true` as the second argument to `url.parse`.
     // This tells it to parse the query portion of the URL.
     let parsedUrl = url.parse(req.url, true);
@@ -24,5 +46,7 @@ export default async () => {
     return handle(req, res, parsedUrl);
   });
 
-  return server;
+  return expressApp;
 };
+
+export default nextApp;

@@ -1,7 +1,18 @@
+/**
+ * Page 에 대한 Model 입니다.
+ *
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.Page
+ * @preferred
+ */
+
 import { Resolver, Query, Mutation, Ctx, Arg } from "type-graphql";
 import { PageEntity } from "./Page.entity";
-import { PageObject } from "./Page.object";
-import { PageCreateInput, PageUpdateInput, PageWhereInput } from "./inputs";
+import { PageObject } from "./objects/Page.object";
+import { PageCreateInput } from "./inputs/PageCreate.input";
+import { PageUpdateInput } from "./inputs/PageUpdate.input";
+import { PageWhereInput } from "./inputs/PageWhere.input";
 import { DeleteResultObject } from "../../commons/DeleteResult.object";
 
 @Resolver()

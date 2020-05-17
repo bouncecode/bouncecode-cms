@@ -20,10 +20,10 @@ docker-compose run app \
 
 ## 스크린샷
 
-![Graphql](docs/images/screencapture-graphql.png)
+![Graphql](media/screencapture-graphql.png)
 
-![Dashboard](docs/images/screencapture-dashboard.png)
+![Dashboard](media/screencapture-dashboard.png)
 
-![LogIn](docs/images/screencapture-login.png)
+![LogIn](media/screencapture-login.png)
 
-![SignUp](docs/images/screencapture-signup.png)
+![SignUp](media/screencapture-signup.png)

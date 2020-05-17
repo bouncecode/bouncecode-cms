@@ -1,7 +1,18 @@
+/**
+ * Menu 에 대한 Model 입니다.
+ *
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.Menu
+ * @preferred
+ */
+
 import { Resolver, Query, Mutation, Ctx, Arg } from "type-graphql";
 import { MenuEntity } from "./Menu.entity";
-import { MenuObject } from "./Menu.object";
-import { MenuCreateInput, MenuUpdateInput, MenuWhereInput } from "./inputs";
+import { MenuObject } from "./objects/Menu.object";
+import { MenuCreateInput } from "./inputs/MenuCreate.input";
+import { MenuUpdateInput } from "./inputs/MenuUpdate.input";
+import { MenuWhereInput } from "./inputs/MenuWhere.input";
 import { DeleteResultObject } from "../../commons/DeleteResult.object";
 
 @Resolver()

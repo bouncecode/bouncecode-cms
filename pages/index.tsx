@@ -1,10 +1,18 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module pages
+ */
+
 import React, { useEffect } from "react";
 import Router from "next/router";
 
-export default function IndexPage() {
+function IndexPage() {
   useEffect(() => {
     Router.push("/signin");
   });
 
   return <div />;
 }
+
+export default IndexPage;

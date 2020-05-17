@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.Test.hooks
+ */
+
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 

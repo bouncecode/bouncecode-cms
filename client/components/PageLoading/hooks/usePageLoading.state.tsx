@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.PageLoading.hooks
+ */
+
 import { useEffect, useState } from "react";
 import Router from "next/router";
 

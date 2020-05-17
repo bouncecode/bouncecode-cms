@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.AdminLayout.hooks
+ */
+
 // Material Core
 import { makeStyles } from "@material-ui/core/styles";
 

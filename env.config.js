@@ -1,3 +1,10 @@
+/**
+ * 앱에서 사용하는 환경변수를 설정하는 파일입니다.
+ *
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ */
+
 let certs = null;
 try {
   certs = require("./config/certs.config");

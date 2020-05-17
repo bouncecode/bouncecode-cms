@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.Button
+ */
+
 /* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from "react";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";

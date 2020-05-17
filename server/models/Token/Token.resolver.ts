@@ -1,15 +1,34 @@
+/**
+ * Token 에 대한 Model 입니다.
+ *
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.Token
+ * @preferred
+ */
+
 import jwt from "jsonwebtoken";
 import { Resolver, Mutation, Arg } from "type-graphql";
-import { TokenObject } from "./Token.object";
+import { TokenObject } from "./objects/Token.object";
 import { UserEntity } from "../User/User.entity";
 import { createHmac } from "crypto";
 import { CERT_PUBLIC, CERT_PRIVATE } from "../../../env.config";
-import { TokenCreateInput } from "./inputs";
+import { TokenCreateInput } from "./inputs/TokenCreate.input";
 
 const JWT_ISSUER = process.env.JWT_ISSUER || "";
 
+/**
+ * 사용자의 요청을 처리하기위한 Resolver 입니다.
+ *
+ * @author BounceCode, Inc.
+ */
 @Resolver()
 export class TokenResolver {
+  /**
+   * 새로운 토큰을 만듭니다.
+   *
+   * @author BounceCode, Inc.
+   */
   @Mutation(() => TokenObject)
   async createToken(@Arg("data") data: TokenCreateInput) {
     const user = await UserEntity.findOne({ email: data.email });
@@ -42,6 +61,11 @@ export class TokenResolver {
     return tokenObject;
   }
 
+  /**
+   * 토큰을 재발급받습니다.
+   *
+   * @author BounceCode, Inc.
+   */
   @Mutation(() => TokenObject)
   async refreshToken(@Arg("refreshToken") refreshToken: string) {
     const expiresIn = 60 * 60 * 2; // 2h

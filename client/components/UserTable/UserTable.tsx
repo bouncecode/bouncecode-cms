@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.UserTable
+ */
+
 import React from "react";
 import MaterialTable from "material-table";
 import { useUserTableColumnsMemo } from "./hooks/useUserTableColumns.memo";

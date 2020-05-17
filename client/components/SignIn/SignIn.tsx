@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.SignIn
+ */
+
 import React from "react";
 // import {
 //   GoogleLoginButton,

@@ -20,7 +20,8 @@
     "admin:add": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"  scripts/admin/addAdmin.ts",
     "admin:reset": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"  scripts/admin/resetAdmin.ts",
     "lint": "tslint --project tsconfig.json",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev"
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
+    "typedoc": "typedoc --media media --out docs --plugin typedoc-plugin-external-module-name server client pages"
   },
   "author": "BounceCode, Inc.",
   "license": "GPL-3.0",
@@ -59,6 +60,8 @@
     "yup": "^0.28.5"
   },
   "devDependencies": {
-    "@types/node": "^13.13.5"
+    "@types/node": "^13.13.5",
+    "typedoc": "^0.17.7",
+    "typedoc-plugin-external-module-name": "^3.1.0"
   }
 }

@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.UserTable.hooks
+ */
+
 import { useMemo } from "react";
 import { Column } from "material-table";
 

@@ -1,3 +1,9 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.Page
+ */
+
 import { Entity, Column, BaseEntity, PrimaryColumn } from "typeorm";
 
 @Entity()
