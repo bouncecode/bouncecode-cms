@@ -24,8 +24,6 @@ const isTest = process.env.NODE_ENV === "test";
 
 if (isTest) {
   dbconfig = {
-    type: "sqlite",
-    database: ":memory:",
     dropSchema: true,
     logging: false,
   };
