@@ -15,11 +15,11 @@ afterAll(async () => {
 
 describe("User", () => {
   const userResolver = new UserResolver();
-  const email = "test@example.com";
+  const email = "test1@example.com";
   const password = "123456";
   let id = null;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const userCreateInput = new UserCreateInput();
     userCreateInput.email = email;
     userCreateInput.password = password;
@@ -33,7 +33,7 @@ describe("User", () => {
     expect(createdUser.payload.foo).toBe(userCreateInput.payload.foo);
   });
 
-  afterEach(async () => {
+  afterAll(async () => {
     const userWhereInput = new UserWhereInput();
     userWhereInput.email = email;
 
