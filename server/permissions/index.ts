@@ -56,8 +56,7 @@ const ruleTree = {
     users: rules.isAdmin,
     config: or(rules.isPublic, rules.isAdmin),
     configs: or(rules.isAdmin),
-    configLog: rules.isAdmin,
-    // usersCount: rules.isAdmin,
+    configLogs: rules.isAdmin,
   },
   Mutation: {
     "*": deny,
