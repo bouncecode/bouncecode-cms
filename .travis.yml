@@ -16,7 +16,7 @@ before_script:
   - docker-compose up -d --build
 
 script:
-  - docker-compose run app bash -c "yarn test"
+  - docker-compose run --rm app bash -c "yarn test"
 
 after_script:
   - docker-compose down

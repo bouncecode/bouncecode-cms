@@ -1,4 +1,4 @@
-import { UserEntity } from "../../server/models/User/User.entity";
+import { UserEntity } from "../../server/models/User/entities/User.entity";
 import { createConnection } from "typeorm";
 
 (async function () {

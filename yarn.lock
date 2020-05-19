@@ -5693,6 +5693,11 @@ jest-haste-map@^26.0.1:
   optionalDependencies:
     fsevents "^2.1.2"
 
+jest-html-reporters@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/jest-html-reporters/-/jest-html-reporters-1.2.1.tgz#74610de7373910e822387bbf7a59eaff65c3ca85"
+  integrity sha512-Ea2zxV7Hhg3pE6cZ+70pS5PkiBywKG8pLuyBc9/JgR6ifnKm2U3t6kvAPX9UNID6YwsPBZjD9sANZ0p49rN4pA==
+
 jest-jasmine2@^26.0.1:
   version "26.0.1"
   resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-26.0.1.tgz#947c40ee816636ba23112af3206d6fa7b23c1c1c"

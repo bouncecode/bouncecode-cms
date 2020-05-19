@@ -5,6 +5,7 @@ services:
     build: .
     restart: on-failure
     volumes:
+      - ./docs:/usr/src/app/docs
       - ./pages:/usr/src/app/pages
       - ./client:/usr/src/app/client
       - ./server:/usr/src/app/server

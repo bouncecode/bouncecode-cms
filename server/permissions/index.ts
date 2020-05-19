@@ -36,6 +36,10 @@ const rules = {
   isAdmin: rule()(async (parent, args, ctx: Context, info) => {
     return Boolean(ctx.user?.isAdmin);
   }),
+
+  isPublic: rule()(async (parent, args, ctx: Context, info) => {
+    return Boolean(args.where.isPublic);
+  }),
 };
 
 /**
@@ -50,6 +54,9 @@ const ruleTree = {
     me: rules.isAuthorized,
     user: rules.isAdmin,
     users: rules.isAdmin,
+    config: or(rules.isPublic, rules.isAdmin),
+    configs: or(rules.isAdmin),
+    configLog: rules.isAdmin,
     // usersCount: rules.isAdmin,
   },
   Mutation: {
@@ -59,18 +66,8 @@ const ruleTree = {
     refreshToken: allow,
     createUser: allow,
     updateUser: rules.isAdmin,
-    createBoard: rules.isAdmin,
-    updateBoard: rules.isAdmin,
-    deleteBoard: rules.isAdmin,
-    createBoardItem: rules.isAdmin,
-    updateBoardItem: rules.isAdmin,
-    deleteBoardItem: rules.isAdmin,
-    createPage: rules.isAdmin,
-    updatePage: rules.isAdmin,
-    deletePage: rules.isAdmin,
-    createPopup: rules.isAdmin,
-    updatePopup: rules.isAdmin,
-    deletePopup: rules.isAdmin,
+    upsertConfig: rules.isAdmin,
+    deleteConfig: rules.isAdmin,
   },
 };
 

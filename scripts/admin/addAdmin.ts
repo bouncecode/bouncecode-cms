@@ -1,6 +1,6 @@
 import { ArgumentParser } from "argparse";
 import { createConnection } from "typeorm";
-import { UserEntity } from "../../server/models/User/User.entity";
+import { UserEntity } from "../../server/models/User/entities/User.entity";
 
 const parser = new ArgumentParser({
   version: "0.0.1",

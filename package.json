@@ -21,7 +21,7 @@
     "admin:reset": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\"  scripts/admin/resetAdmin.ts",
     "lint": "tslint --project tsconfig.json",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
-    "typedoc": "typedoc --media media --out docs --plugin typedoc-plugin-external-module-name server client pages",
+    "docs": "typedoc --media media --out docs/apis --plugin typedoc-plugin-external-module-name server client pages",
     "test": "NODE_ENV=test jest"
   },
   "author": "BounceCode, Inc.",
@@ -65,6 +65,7 @@
     "@types/jest": "^25.2.2",
     "@types/node": "^13.13.5",
     "jest": "^26.0.1",
+    "jest-html-reporters": "^1.2.1",
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
     "typedoc-plugin-external-module-name": "^3.1.0"
