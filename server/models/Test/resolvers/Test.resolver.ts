@@ -3,7 +3,7 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Test
+ * @module server.models.Test.resolvers
  * @preferred
  */
 

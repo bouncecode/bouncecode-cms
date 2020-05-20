@@ -3,7 +3,7 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Token
+ * @module server.models.User.resolvers
  * @preferred
  */
 

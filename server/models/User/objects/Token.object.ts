@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Token.objects
+ * @module server.models.User.objects
  */
 
 import { ObjectType, Field } from "type-graphql";

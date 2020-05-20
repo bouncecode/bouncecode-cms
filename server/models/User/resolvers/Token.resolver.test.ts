@@ -1,5 +1,7 @@
 /**
  * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module server.models.User.resolvers
  */
 
 import { getConnection } from "typeorm";

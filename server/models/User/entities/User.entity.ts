@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.User
+ * @module server.models.User.entities
  */
 
 import {

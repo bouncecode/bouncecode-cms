@@ -1,5 +1,7 @@
 /**
  * @author BounceCode, Inc.
+ * @packageDocumentation
+ * @module client.components.SignUp.views
  */
 
 import * as React from "react";
