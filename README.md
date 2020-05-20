@@ -12,6 +12,24 @@
 docker-compose up --build
 ```
 
+## Storybook 실행
+
+```bash
+yarn storybook
+```
+
+## Jest 유닛 테스트
+
+```bash
+docker-compose run --rm app bash -c "yarn test"
+```
+
+## Storybook, Jest, Typedoc 문서화
+
+```bash
+docker-compose run --rm app bash -c "yarn docs"
+```
+
 ## 관리자 추가
 
 ```bash
