@@ -21,20 +21,22 @@ yarn storybook
 ## Jest 유닛 테스트
 
 ```bash
-docker-compose run --rm app bash -c "yarn test"
+docker-compose run --rm app \
+  bash -c "yarn test"
 ```
 
 ## Storybook, Jest, Typedoc 문서화
 
 ```bash
-docker-compose run --rm app bash -c "yarn docs"
+docker-compose run --rm app \
+  bash -c "yarn docs"
 ```
 
 ## 관리자 추가
 
 ```bash
 # 회원가입 후 실행하셔야합니다.
-docker-compose run app \
+docker-compose run --rm app \
   bash -c "yarn admin:add --email=tpnet3@gmail.com"
 ```
 
