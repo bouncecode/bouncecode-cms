@@ -61,7 +61,7 @@
     "ts-node": "^8.10.1",
     "type-graphql": "^1.0.0-rc.1",
     "typeorm": "^0.2.24",
-    "typescript": "^3.9.3",
+    "typescript": "~3.8",
     "yup": "^0.28.5"
   },
   "devDependencies": {
