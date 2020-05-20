@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.ResetPassword.hooks
+ * @module client.components.ResetPassword.views
  */
 
 import { useEffect } from "react";

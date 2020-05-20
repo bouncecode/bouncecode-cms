@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.Test
+ * @module client.components.Test.views
  */
 
 import React from "react";

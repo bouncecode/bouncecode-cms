@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.UserTable.hooks
+ * @module client.components.UserTable.views
  */
 
 import { useMemo } from "react";

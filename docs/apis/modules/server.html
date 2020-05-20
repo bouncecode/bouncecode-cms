@@ -85,7 +85,6 @@
 						<section class="tsd-index-section ">
 							<h3>Modules</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-module tsd-parent-kind-module"><a href="server.commons.html" class="tsd-kind-icon">commons</a></li>
 								<li class="tsd-kind-module tsd-parent-kind-module"><a href="server.lib.html" class="tsd-kind-icon">lib</a></li>
 								<li class="tsd-kind-module tsd-parent-kind-module tsd-is-not-exported"><a href="server.models.html" class="tsd-kind-icon">models</a></li>
 								<li class="tsd-kind-module tsd-parent-kind-module"><a href="server.permissions.html" class="tsd-kind-icon">permissions</a></li>
@@ -127,7 +126,7 @@
 					<div class="tsd-signature tsd-kind-icon">app<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span><span class="tsd-signature-symbol"> = next({ dev, conf: { distDir: &quot;.next&quot; } })</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/next.ts#L23">server/next.ts:23</a></li>
+							<li>Defined in server/next.ts:23</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -147,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">dev<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = process.env.NODE_ENV &#x3D;&#x3D;&#x3D; &quot;development&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/next.ts#L16">server/next.ts:16</a></li>
+							<li>Defined in server/next.ts:16</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -167,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">express<wbr>App<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Express</span><span class="tsd-signature-symbol"> = express()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/express.ts#L76">server/express.ts:76</a></li>
+							<li>Defined in server/express.ts:76</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">handle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IncomingMessage</span>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span>, parsedUrl<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">UrlWithParsedQuery</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = app.getRequestHandler()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/next.ts#L24">server/next.ts:24</a></li>
+							<li>Defined in server/next.ts:24</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -224,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">resolvers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NonEmptyArray</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = [__dirname + &quot;/models/**/*.resolver.{ts,js}&quot;,]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/express.ts#L21">server/express.ts:21</a></li>
+							<li>Defined in server/express.ts:21</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -244,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">GraphQLSchema</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>fragmentReplacements<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">FragmentReplacement</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">; </span>schema<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">GraphQLSchema</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = applyMiddleware(buildSchemaSync({resolvers,}),permissions)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/express.ts#L31">server/express.ts:31</a></li>
+							<li>Defined in server/express.ts:31</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -265,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ApolloServer</span><span class="tsd-signature-symbol"> = new ApolloServer({schema,context,})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/express.ts#L66">server/express.ts:66</a></li>
+							<li>Defined in server/express.ts:66</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -292,7 +291,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/express.ts#L55">server/express.ts:55</a></li>
+									<li>Defined in server/express.ts:55</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/bouncecode/bouncecode-cms/blob/89efd23/server/next.ts#L31">server/next.ts:31</a></li>
+									<li>Defined in server/next.ts:31</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,26 +356,19 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
-					</li>
-					<li class=" tsd-kind-module tsd-is-not-exported">
-						<a href="client.html">client</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="pages.html">pages</a>
-					</li>
 					<li class="current tsd-kind-module tsd-is-not-exported">
 						<a href="server.html">server</a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="_env_config_.html">&quot;env.config&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="_seeds_.html">&quot;seeds&quot;</a>
+						<ul>
+							<li class=" tsd-kind-module tsd-parent-kind-module">
+								<a href="server.lib.html">lib</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-module tsd-is-not-exported">
+								<a href="server.models.html">models</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-module">
+								<a href="server.permissions.html">permissions</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</nav>
@@ -422,6 +414,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>

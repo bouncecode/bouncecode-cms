@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.SignIn
+ * @module client.components.SignIn.views
  */
 
 import React from "react";

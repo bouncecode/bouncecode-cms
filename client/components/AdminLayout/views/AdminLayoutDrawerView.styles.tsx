@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.AdminLayout.hooks
+ * @module client.components.AdminLayout.views
  */
 
 // Material Core

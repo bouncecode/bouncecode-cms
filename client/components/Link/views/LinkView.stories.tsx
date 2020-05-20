@@ -1,7 +1,5 @@
 /**
  * @author BounceCode, Inc.
- * @packageDocumentation
- * @module client.components.Link.views
  */
 
 import * as React from "react";

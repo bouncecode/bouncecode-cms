@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.UserTable
+ * @module client.components.UserTable.views
  */
 
 import React from "react";

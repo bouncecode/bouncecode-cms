@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.AdminLayout
+ * @module client.components.AdminLayout.views
  */
 
 import Router from "next/router";

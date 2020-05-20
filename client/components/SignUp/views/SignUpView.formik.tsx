@@ -1,7 +1,7 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.SignUp.hooks
+ * @module client.components.SignUp.views
  */
 
 import { useEffect } from "react";
