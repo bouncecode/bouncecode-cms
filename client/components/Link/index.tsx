@@ -4,4 +4,4 @@
  * @module client.components.Link
  */
 
-export * from "./Link";
+export { LinkView as Link } from "./views/LinkView";
