@@ -6,8 +6,8 @@
 
 import React from "react";
 import MaterialTable from "material-table";
-import { useUserTableColumnsMemo } from "./hooks/useUserTableColumns.memo";
-import { useUserTableDataCallback } from "./hooks/useUserTableData.callback";
+import { useUserTableViewColumns } from "./UserTableView.columns";
+import { ITableDataCallback } from "client/commons/interfaces";
 
 const localization = {
   header: {
@@ -21,15 +21,18 @@ const localization = {
   },
 };
 
-export function UserTable() {
-  const columns = useUserTableColumnsMemo();
-  const data = useUserTableDataCallback();
+export interface IUserTableView {
+  data: ITableDataCallback;
+}
+
+export function UserTableView(props: IUserTableView) {
+  const columns = useUserTableViewColumns();
 
   return (
     <MaterialTable
       title="목록"
       columns={columns}
-      data={data}
+      data={props.data}
       localization={localization}
       options={{
         search: false,

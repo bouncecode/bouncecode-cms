@@ -6,12 +6,16 @@
 
 import * as React from "react";
 import { LinkView } from "./LinkView";
+import { withKnobs, text } from "@storybook/addon-knobs";
 
 export default {
   title: "Link/LinkView",
   component: LinkView,
+  decorators: [withKnobs],
 };
 
 export const defaultView = () => {
-  return <LinkView href="/">텍스트</LinkView>;
+  const children = text("children", "Hello, world!");
+
+  return <LinkView href="/">{children}</LinkView>;
 };
