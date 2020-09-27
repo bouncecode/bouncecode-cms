@@ -7,7 +7,7 @@
 import { useMemo } from "react";
 import { Column } from "material-table";
 
-export function useUserTableViewColumns() {
+export function useUserTableViewColumnsMemo() {
   return useMemo<Array<Column<any>>>(() => {
     return [
       {

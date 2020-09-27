@@ -26,7 +26,7 @@ import ReceiptIcon from "@material-ui/icons/Receipt";
 import AppsIcon from "@material-ui/icons/Apps";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import LiveHelpIcon from "@material-ui/icons/LiveHelp";
-import { useAdminLayoutViewStyles } from "./AdminLayoutView.styles";
+import { useAdminLayoutViewStyles } from "../styles/AdminLayoutView.styles";
 
 /**
  * 관리자 레이아웃의 Drawer 입니다.

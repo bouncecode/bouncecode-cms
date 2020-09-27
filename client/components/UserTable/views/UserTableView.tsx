@@ -6,7 +6,7 @@
 
 import React from "react";
 import MaterialTable from "material-table";
-import { useUserTableViewColumns } from "./UserTableView.columns";
+import { useUserTableViewColumnsMemo } from "../hooks/useUserTableViewColumns.memo";
 import { ITableDataCallback } from "client/commons/interfaces";
 
 const localization = {
@@ -26,7 +26,7 @@ export interface IUserTableView {
 }
 
 export function UserTableView(props: IUserTableView) {
-  const columns = useUserTableViewColumns();
+  const columns = useUserTableViewColumnsMemo();
 
   return (
     <MaterialTable

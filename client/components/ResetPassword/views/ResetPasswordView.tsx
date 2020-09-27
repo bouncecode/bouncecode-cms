@@ -11,8 +11,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { useResetPasswordViewFormik } from "./ResetPasswordView.formik";
-import { useResetPasswordViewStyles } from "./ResetPasswordView.styles";
+import { useResetPasswordViewFormik } from "../hooks/useResetPasswordView.formik";
+import { useResetPasswordViewStyles } from "../styles/ResetPasswordView.styles";
 import { Link } from "client/components/Link";
 import { FormikValues, FormikHelpers } from "formik";
 

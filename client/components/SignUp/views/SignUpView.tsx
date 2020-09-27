@@ -12,8 +12,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Link } from "client/components/Link";
-import { useSignUpViewStyles } from "./SignUpView.styles";
-import { useSignUpViewFormik } from "./SignUpView.formik";
+import { useSignUpViewStyles } from "../styles/SignUpView.styles";
+import { useSignUpViewFormik } from "../hooks/useSignUpView.formik";
 import { FormikHelpers, FormikValues } from "formik";
 
 export interface ISignUpView {

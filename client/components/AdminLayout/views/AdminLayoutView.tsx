@@ -20,7 +20,7 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 
 // Styles
-import { useAdminLayoutViewStyles } from "./AdminLayoutView.styles";
+import { useAdminLayoutViewStyles } from "../styles/AdminLayoutView.styles";
 import { IMeQueryObject } from "client/commons/useMe.query";
 
 export interface IAdminLayoutView {
