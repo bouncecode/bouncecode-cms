@@ -17,6 +17,7 @@
     "experimentalDecorators": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "downlevelIteration": true,
     "paths": {
       "client/*": ["client/*"],
       "config/*": ["config/*"]
