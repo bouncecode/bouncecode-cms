@@ -20,6 +20,9 @@ docker-compose run --rm app.bouncecode-cms \
 ## 개발 환경
 
 ```bash
+# 패키지 설치
+yarn --ignore-engines
+
 # Storybook 실행
 yarn storybook
 
