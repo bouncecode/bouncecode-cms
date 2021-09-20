@@ -1,4 +1,4 @@
-FROM node:10
+FROM --platform=linux/amd64 node:12
 
 WORKDIR /usr/src/app
 RUN mkdir -p /usr/src/app
