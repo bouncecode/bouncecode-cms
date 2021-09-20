@@ -4,10 +4,10 @@
  * @module client.components.PageLoading
  */
 
-import React from "react";
+import React from 'react';
 
-import { usePageLoadingState } from "./hooks/usePageLoading.state";
-import { PageLoadingView } from "./views/PageLoadingView";
+import {usePageLoadingState} from './hooks/usePageLoading.state';
+import {PageLoadingView} from './views/PageLoadingView';
 
 export function PageLoading(props) {
   const [loading] = usePageLoadingState();

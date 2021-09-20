@@ -14,14 +14,14 @@ import {
   BeforeInsert,
   PrimaryColumn,
   Index,
-} from "typeorm";
-import { ConfigLogEntity } from "./ConfigLog.entity";
+} from 'typeorm';
+import {ConfigLogEntity} from './ConfigLog.entity';
 
 /**
  * 공개된 데이터를 저장합니다.
  */
 @Entity()
-@Index(["type", "isPublic"])
+@Index(['type', 'isPublic'])
 export class ConfigEntity extends BaseEntity {
   /**
    * 고유값입니다.
@@ -33,7 +33,7 @@ export class ConfigEntity extends BaseEntity {
    * 커스텀 타입을 설정할 수 있습니다.
    */
   @Index()
-  @Column({ nullable: true })
+  @Column({nullable: true})
   type?: string;
 
   /**
@@ -45,7 +45,7 @@ export class ConfigEntity extends BaseEntity {
   /**
    * 관련된 모든 데이터
    */
-  @Column("json", { nullable: true })
+  @Column('json', {nullable: true})
   payload?: any;
 
   /**
@@ -57,13 +57,13 @@ export class ConfigEntity extends BaseEntity {
   /**
    * 수정한 사람의 아이디
    */
-  @Column({ nullable: true })
+  @Column({nullable: true})
   updatedBy?: number;
 
   /**
    * 삭제한 User 의 아이디
    */
-  @Column({ nullable: true })
+  @Column({nullable: true})
   deletedBy?: number;
 
   /**
@@ -75,13 +75,13 @@ export class ConfigEntity extends BaseEntity {
   /**
    * 수정한 날짜. 이 필드는 자동으로 업데이트됩니다.
    */
-  @Column({ nullable: true })
+  @Column({nullable: true})
   updatedDate?: Date;
 
   /**
    * 삭제한 날짜. 이 필드는 deletedBy 를 설정하면 자동으로 업데이트됩니다.
    */
-  @Column({ nullable: true })
+  @Column({nullable: true})
   deletedDate?: Date;
 
   /**

@@ -4,28 +4,28 @@
  * @module client.components.SignIn.views
  */
 
-import React from "react";
+import React from 'react';
 // import {
 //   GoogleLoginButton,
 //   FacebookLoginButton
 // } from "react-social-login-buttons";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 // import FormControlLabel from "@material-ui/core/FormControlLabel";
 // import Checkbox from "@material-ui/core/Checkbox";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { useSignInViewStyles } from "../styles/SignInView.styles";
-import { useSigninViewFormik } from "../hooks/useSignInView.formik";
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import {makeStyles} from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import {useSignInViewStyles} from '../styles/SignInView.styles';
+import {useSigninViewFormik} from '../hooks/useSignInView.formik';
 // import useSigninFacebookCallback from "src/hooks/callbacks/useSigninFacebookCallback";
 // import useSigninGoogleCallback from "src/hooks/callbacks/useSigninGoogleCallback";
-import { Link } from "client/components/Link";
-import { FormikValues, FormikHelpers } from "formik";
+import {Link} from 'client/components/Link';
+import {FormikValues, FormikHelpers} from 'formik';
 
 export interface IResetPasswordView {
   /**
@@ -33,7 +33,7 @@ export interface IResetPasswordView {
    */
   onSubmit: (
     values: FormikValues,
-    formikHelpers: FormikHelpers<FormikValues>
+    formikHelpers: FormikHelpers<FormikValues>,
   ) => void | Promise<any>;
 }
 
@@ -81,7 +81,7 @@ export function SignInView(props: IResetPasswordView) {
                 autoFocus
                 onChange={handleChange}
                 value={values.email}
-                helperText={touched.email ? errors.email : ""}
+                helperText={touched.email ? errors.email : ''}
                 error={touched.email && Boolean(errors.email)}
                 // autoFocus
               />
@@ -98,7 +98,7 @@ export function SignInView(props: IResetPasswordView) {
                 autoComplete="password"
                 onChange={handleChange}
                 value={values.password}
-                helperText={touched.password ? errors.password : ""}
+                helperText={touched.password ? errors.password : ''}
                 error={touched.password && Boolean(errors.password)}
               />
               {/* <FormControlLabel
@@ -115,8 +115,7 @@ export function SignInView(props: IResetPasswordView) {
             size="large"
             className={classes.submit}
             disabled={isSubmitting}
-            endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}
-          >
+            endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             로그인
           </Button>
           <Grid container>

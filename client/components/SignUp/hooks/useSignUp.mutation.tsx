@@ -4,10 +4,10 @@
  * @module client.components.SignUp.hooks
  */
 
-import gql from "graphql-tag";
-import { useMutation } from "@apollo/react-hooks";
-import { useSnackbar } from "notistack";
-import Router from "next/router";
+import gql from 'graphql-tag';
+import {useMutation} from '@apollo/react-hooks';
+import {useSnackbar} from 'notistack';
+import Router from 'next/router';
 
 const CREATE_USER = gql`
   mutation($data: UserCreateInput!) {
@@ -23,15 +23,15 @@ const CREATE_USER = gql`
 `;
 
 export function useSignUpMutation() {
-  const { enqueueSnackbar } = useSnackbar();
+  const {enqueueSnackbar} = useSnackbar();
   return useMutation(CREATE_USER, {
     onCompleted: () => {
-      enqueueSnackbar("회원가입 했습니다.", { variant: "success" });
-      Router.push("/signin");
+      enqueueSnackbar('회원가입 했습니다.', {variant: 'success'});
+      Router.push('/signin');
     },
-    onError: (e) => {
+    onError: e => {
       console.error(e);
-      enqueueSnackbar(e.message, { variant: "error" });
+      enqueueSnackbar(e.message, {variant: 'error'});
     },
   });
 }

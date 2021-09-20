@@ -1,32 +1,41 @@
-version: "3.7"
+version: '3.7'
 
 services:
-  app:
+  app.bouncecode-cms:
     build: .
+    image: tpnet3/bouncecode-cms:latest
     restart: on-failure
     volumes:
+      - ./package.json:/usr/src/app/package.json
+      - ./ormconfig.js:/usr/src/app/ormconfig.js
       - ./docs:/usr/src/app/docs
       - ./pages:/usr/src/app/pages
       - ./client:/usr/src/app/client
       - ./server:/usr/src/app/server
       - ./scripts:/usr/src/app/scripts
+      - ./public:/usr/src/app/public
+      - ./uploads:/usr/src/app/uploads
+      - ./config:/usr/src/app/config
+      - ./admin:/usr/src/app/admin
     command: "/bin/sh -c 'yarn dev'"
     ports:
       - 8080:8080
     environment:
+      ADMIN_EMAIL: admin
+      ADMIN_PASSWORD: password
       DB_TYPE: postgres
-      DB_HOST: postgres
+      DB_HOST: postgres.bouncecode-cms
       DB_PORT: 5432
       DB_USERNAME: root
       DB_PASSWORD: password
       DB_DATABASE: bouncecode
     logging:
-      driver: "json-file"
+      driver: 'json-file'
       options:
-        max-size: "200k"
-        max-file: "10"
+        max-size: '200k'
+        max-file: '10'
 
-  postgres:
+  postgres.bouncecode-cms:
     image: postgres
     restart: always
     environment:
@@ -34,14 +43,14 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: bouncecode
     volumes:
-      - postgresql:/var/lib/postgresql/data
+      - postgresql.bouncecode-cms:/var/lib/postgresql/data
     ports:
-      - "127.0.0.1:5432:5432" # temporary
+      - '127.0.0.1:5432:5432' # temporary
     logging:
-      driver: "json-file"
+      driver: 'json-file'
       options:
-        max-size: "200k"
-        max-file: "10"
+        max-size: '200k'
+        max-file: '10'
 
 volumes:
-  postgresql:
+  postgresql.bouncecode-cms:

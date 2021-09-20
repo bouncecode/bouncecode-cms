@@ -4,12 +4,12 @@
  * @module pages
  */
 
-import React, { useEffect } from "react";
-import Router from "next/router";
+import React, {useEffect} from 'react';
+import Router from 'next/router';
 
 function IndexPage() {
   useEffect(() => {
-    Router.push("/signin");
+    Router.push('/signin');
   });
 
   return <div />;

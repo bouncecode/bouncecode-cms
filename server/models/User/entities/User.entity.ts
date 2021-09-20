@@ -16,8 +16,8 @@ import {
   AfterLoad,
   DeleteDateColumn,
   VersionColumn,
-} from "typeorm";
-import { createHmac } from "crypto";
+} from 'typeorm';
+import bcrypt from 'bcrypt';
 
 /**
  * 데이터베이스와 연결된 Entity 입니다.
@@ -29,16 +29,19 @@ export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column({unique: true})
   email: string;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   password: string;
 
-  @Column({ default: false })
+  @Column({nullable: true})
+  passwordEncrypted?: string;
+
+  @Column({default: false})
   isAdmin: boolean;
 
-  @Column("json", { nullable: true })
+  @Column('json', {nullable: true})
   payload?: any;
 
   @CreateDateColumn()
@@ -53,18 +56,12 @@ export class UserEntity extends BaseEntity {
   @VersionColumn()
   version: number;
 
-  // start: hash password
-  private tempPassword: string;
-  @AfterLoad()
-  private loadTempPassword(): void {
-    this.tempPassword = this.password;
-  }
   @BeforeInsert()
   @BeforeUpdate()
-  private encryptPassword(): void {
-    if (this.tempPassword !== this.password) {
-      this.password = createHmac("sha256", this.password).digest("hex");
+  private async encryptPassword(): Promise<void> {
+    if (this.password) {
+      this.passwordEncrypted = await bcrypt.hash(this.password, 10);
+      this.password = undefined;
     }
   }
-  // end: hash password
 }

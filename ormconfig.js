@@ -1,10 +1,11 @@
-const { DATABASE } = require("./env.config");
+const {DATABASE} = require('./env.config');
 
 module.exports = [
   {
     ...DATABASE,
     synchronize: true,
-    entities: ["server/models/**/*.entity.{js,ts}"],
+    entities: ['server/models/**/*.entity.{js,ts}'],
+    seeds: ['server/models/**/*.seed.{js,ts}'],
     // charset: "UTF8_GENERAL_CI",
     // migrations: ["server/migrations/*.{js,ts}"],
     // subscribers: ["server/subscribers/**/*.{js,ts}"],

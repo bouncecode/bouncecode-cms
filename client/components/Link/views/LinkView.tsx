@@ -5,15 +5,15 @@
  */
 
 /* eslint-disable jsx-a11y/anchor-has-content */
-import * as React from "react";
+import * as React from 'react';
 // import clsx from "clsx";
 // import { useRouter } from "next/router";
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
-import MuiLink, { LinkProps as MuiLinkProps } from "@material-ui/core/Link";
+import NextLink, {LinkProps as NextLinkProps} from 'next/link';
+import MuiLink, {LinkProps as MuiLinkProps} from '@material-ui/core/Link';
 
 type NextComposedProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href"
+  'href'
 > &
   NextLinkProps;
 
@@ -38,12 +38,11 @@ const NextComposed = React.forwardRef<HTMLAnchorElement, NextComposedProps>(
         replace={replace}
         scroll={scroll}
         shallow={shallow}
-        passHref={passHref}
-      >
+        passHref={passHref}>
         <a ref={ref} {...other} />
       </NextLink>
     );
-  }
+  },
 );
 
 interface LinkPropsBase {
@@ -54,13 +53,13 @@ interface LinkPropsBase {
 
 export type LinkProps = LinkPropsBase &
   NextComposedProps &
-  Omit<MuiLinkProps, "href">;
+  Omit<MuiLinkProps, 'href'>;
 
 const uriHack = (uri: string, hasSlash?: boolean) => {
-  const [pathname, qs] = String(uri).split("?", 2);
-  const query = qs ? `?${qs}` : "";
-  return pathname !== "/"
-    ? String(pathname).replace(/\/$/, hasSlash ? "/" : "") + query
+  const [pathname, qs] = String(uri).split('?', 2);
+  const query = qs ? `?${qs}` : '';
+  return pathname !== '/'
+    ? String(pathname).replace(/\/$/, hasSlash ? '/' : '') + query
     : pathname + query;
 };
 
@@ -114,5 +113,5 @@ function LinkComponent(props: LinkProps) {
  * Material UI 의 링크와 Next.js 의 링크의 기능을 통합한 컴포넌트입니다.
  */
 export const LinkView = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref) => <LinkComponent {...props} innerRef={ref} />
+  (props, ref) => <LinkComponent {...props} innerRef={ref} />,
 );

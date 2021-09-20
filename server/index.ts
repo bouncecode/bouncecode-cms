@@ -7,8 +7,8 @@
  * @preferred
  */
 
-import nextApp from "./next";
-import { PORT } from "../env.config";
+import nextApp from './next';
+import {PORT} from '../env.config';
 
 /**
  * {@link nextApp} 을 실행합니다.
@@ -16,11 +16,11 @@ import { PORT } from "../env.config";
  * @author BounceCode, Inc.
  */
 nextApp()
-  .then((server) => {
+  .then(server => {
     server.listen(PORT, () => {
       console.log(`Server ready on http://localhost:${PORT}`);
     });
   })
-  .catch((e) => {
+  .catch(e => {
     console.error(e);
   });

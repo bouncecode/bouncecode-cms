@@ -7,8 +7,8 @@
  * @preferred
  */
 
-import { Resolver, Mutation, Query, Arg } from "type-graphql";
-import { TestObject } from "../objects/Test.object";
+import {Resolver, Mutation, Query, Arg} from 'type-graphql';
+import {TestObject} from '../objects/Test.object';
 
 /**
  * Test 와 관련된 요청을 처리합니다.
@@ -24,7 +24,7 @@ export class TestResolver {
    */
   @Query(() => TestObject)
   @Mutation(() => TestObject)
-  async test(@Arg("message") message: string) {
+  async test(@Arg('message') message: string) {
     const testObject = new TestObject();
     testObject.message = message;
     return testObject;

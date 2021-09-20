@@ -4,8 +4,8 @@
  * @module pages
  */
 
-import React from "react";
-import { SignIn } from "client/components/SignIn";
+import React from 'react';
+import {SignIn} from 'client/components/SignIn';
 
 function SignInPage() {
   return <SignIn />;

@@ -6,37 +6,42 @@
 
 카카오톡 오픈채팅: https://open.kakao.com/o/ghJjrKbb
 
-## 서버 시작
+## 실행 방법
 
 ```bash
+# 서버 실행
 docker-compose up --build
+
+# 시드 데이터 추가 (최초 관리자 계정 생성 등)
+docker-compose run --rm app.bouncecode-cms \
+  bash -c "yarn seed:run"
 ```
 
-## Storybook 실행
+## 개발 환경
 
 ```bash
+# Storybook 실행
 yarn storybook
-```
 
-## Jest 유닛 테스트
-
-```bash
-docker-compose run --rm app \
+# Jest 유닛 테스트
+docker-compose run --rm app.bouncecode-cms \
   bash -c "yarn test"
-```
 
-## Storybook, Jest, Typedoc 문서화
-
-```bash
-docker-compose run --rm app \
+# Storybook, Jest, Typedoc 문서화
+docker-compose run --rm app.bouncecode-cms \
   bash -c "yarn docs"
 ```
 
-## 관리자 추가
+## 관리자 설정
 
 ```bash
-# 회원가입 후 실행하셔야합니다.
-docker-compose run --rm app \
+# 관리자 추가
+docker-compose run --rm app.bouncecode-cms \
+  bash -c "yarn admin:create --email=tpnet3@gmail.com --password=PASSWORD"
+
+
+# 관리자로 전환 (회원가입 된 상태여야 합니다.)
+docker-compose run --rm app.bouncecode-cms \
   bash -c "yarn admin:add --email=tpnet3@gmail.com"
 ```
 

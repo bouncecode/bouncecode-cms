@@ -4,14 +4,14 @@
  * @module client.components.AdminLayout.views
  */
 
-import * as React from "react";
-import { AdminLayoutView, IAdminLayoutView } from "./AdminLayoutView";
-import { AdminLayoutDrawerView } from "./AdminLayoutDrawerView";
-import { action } from "@storybook/addon-actions";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import * as React from 'react';
+import {AdminLayoutView, IAdminLayoutView} from './AdminLayoutView';
+import {AdminLayoutDrawerView} from './AdminLayoutDrawerView';
+import {action} from '@storybook/addon-actions';
+import {withKnobs, text} from '@storybook/addon-knobs';
 
 export default {
-  title: "AdminLayout/AdminLayoutView",
+  title: 'AdminLayout/AdminLayoutView',
   component: AdminLayoutView,
   decorators: [withKnobs],
 };
@@ -22,7 +22,7 @@ export const defaultView = () => {
   const data = {
     me: {
       id: 1,
-      email: text("Email", "test@example.com"),
+      email: text('Email', 'test@example.com'),
       isAdmin: false,
     },
   };
@@ -31,7 +31,7 @@ export const defaultView = () => {
     <AdminLayoutView
       drawer={drawer}
       data={data}
-      handleLogout={action("handleLogout")}
+      handleLogout={action('handleLogout')}
     />
   );
 };

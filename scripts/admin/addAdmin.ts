@@ -1,20 +1,20 @@
-import { ArgumentParser } from "argparse";
-import { createConnection } from "typeorm";
-import { UserEntity } from "../../server/models/User/entities/User.entity";
+import {ArgumentParser} from 'argparse';
+import {createConnection} from 'typeorm';
+import {UserEntity} from '../../server/models/User/entities/User.entity';
 
 const parser = new ArgumentParser({
-  version: "0.0.1",
+  version: '0.0.1',
   addHelp: true,
-  description: "Reset admin",
+  description: 'Add admin',
 });
 
-parser.addArgument(["-e", "--email"], {
-  help: "Email",
+parser.addArgument(['-e', '--email'], {
+  help: 'Email',
 });
 
 const args = parser.parseArgs();
 
-(async function () {
+(async function() {
   const connection = await createConnection();
 
   console.log(
@@ -24,8 +24,8 @@ const args = parser.parseArgs();
       },
       {
         isAdmin: true,
-      }
-    )
+      },
+    ),
   );
 
   await connection.close();

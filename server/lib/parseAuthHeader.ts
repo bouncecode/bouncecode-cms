@@ -4,7 +4,7 @@
  * @module server.lib
  */
 
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { CERT_PUBLIC } from "../../env.config";
 
 /**
@@ -17,7 +17,7 @@ export const parseAuthHeader = async (authHeader = "") => {
   try {
     const token = authHeader.replace(/Bearer /i, "");
     const jwtObj = await jwt.verify(token, CERT_PUBLIC);
-    if (jwtObj.sub === "access_token") return jwtObj;
+    if (jwtObj.sub === "access_token") return jwtObj as JwtPayload;
   } catch (e) {}
   return null;
 };

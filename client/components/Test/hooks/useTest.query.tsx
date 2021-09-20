@@ -4,8 +4,8 @@
  * @module client.components.Test.hooks
  */
 
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import {useQuery} from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 const TEST_QUERY = gql`
   query($message: String!) {
@@ -17,6 +17,6 @@ const TEST_QUERY = gql`
 
 export const useTestQuery = () => {
   return useQuery(TEST_QUERY, {
-    variables: { message: "test" },
+    variables: {message: 'test'},
   });
 };

@@ -4,14 +4,14 @@
  * @module client.components.SignUp
  */
 
-import React from "react";
-import { SignUpView } from "./views/SignUpView";
-import { useSignUpMutation } from "./hooks/useSignUp.mutation";
+import React from 'react';
+import {SignUpView} from './views/SignUpView';
+import {useSignUpMutation} from './hooks/useSignUp.mutation';
 
 export function SignUp() {
   const [signUpMutation] = useSignUpMutation();
 
-  const onSubmit = async (values) => {
+  const onSubmit = async values => {
     return signUpMutation({
       variables: {
         data: {

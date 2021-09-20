@@ -4,8 +4,8 @@
  * @module client.commons
  */
 
-import { useQuery, QueryHookOptions } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import {useQuery, QueryHookOptions} from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 const ME_QUERY = gql`
   query {

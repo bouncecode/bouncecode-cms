@@ -4,14 +4,26 @@
  * @module server
  */
 
-import "reflect-metadata";
-import express from "express";
-import { ApolloServer } from "apollo-server-express";
-import { applyMiddleware } from "graphql-middleware";
-import { buildSchemaSync, NonEmptyArray } from "type-graphql";
-import permissions from "./permissions";
-import { parseAuthHeader } from "./lib/parseAuthHeader";
-import { connectDatabase } from "./lib/connectDatabase";
+import 'reflect-metadata';
+import express from 'express';
+import {ApolloServer} from 'apollo-server-express';
+import {applyMiddleware} from 'graphql-middleware';
+import {buildSchemaSync, NonEmptyArray} from 'type-graphql';
+import {OpenAPI, useSofa} from 'sofa-api';
+import {parseAuthHeader} from './lib/parseAuthHeader';
+import {connectDatabase} from './lib/connectDatabase';
+import multer from 'multer';
+import handleUploadToFileSystem from './lib/handleUploadToFileSystem';
+import useAdminBroExpress from '../admin';
+import permissions from './permissions';
+import './lib/firebase';
+
+const SOFA_BASE_PATH = '/api';
+
+const upload = multer({
+  dest: 'uploads/',
+  limits: {fieldSize: 25 * 1024 * 1024},
+});
 
 /**
  * GraphQL Resolver 에 해당하는 모든 파일을 가져옵니다.
@@ -19,7 +31,7 @@ import { connectDatabase } from "./lib/connectDatabase";
  * @author BounceCode, Inc.
  */
 const resolvers: NonEmptyArray<Function> | NonEmptyArray<string> = [
-  __dirname + "/models/**/*.resolver.{ts,js}",
+  __dirname + '/models/**/*.resolver.{ts,js}',
 ];
 
 /**
@@ -32,8 +44,16 @@ const schema = applyMiddleware(
   buildSchemaSync({
     resolvers,
   }),
-  permissions
+  permissions,
 );
+
+const openApi = OpenAPI({
+  schema,
+  info: {
+    // title: 'Example API',
+    // version: '3.0.0',
+  },
+});
 
 /**
  * Context 에 대한 interface 입니다.
@@ -52,10 +72,10 @@ export interface Context {
  *
  * @author BounceCode, Inc.
  */
-const context = async ({ req }): Promise<Partial<Context>> => {
+const context = async ({req}: {req: any}): Promise<Partial<Context>> => {
   await connectDatabase();
   const user = await parseAuthHeader(req.headers.authorization);
-  return { ...req, user };
+  return {...req, user};
 };
 
 /**
@@ -73,6 +93,40 @@ const server = new ApolloServer({
  *
  * @author BounceCode, Inc.
  */
-const expressApp = express();
-server.applyMiddleware({ app: expressApp });
-export default expressApp;
+export default async function createExpressApp() {
+  const expressApp = express();
+
+  await useAdminBroExpress(expressApp);
+
+  // parse application/x-www-form-urlencoded
+  expressApp.use(express.urlencoded({extended: true}));
+
+  // parse application/json
+  expressApp.use(express.json());
+
+  expressApp.post('/upload', upload.single('file'), handleUploadToFileSystem);
+
+  expressApp.use('/uploads', express.static('uploads'));
+
+  expressApp.use(
+    SOFA_BASE_PATH,
+    useSofa({
+      schema,
+      context,
+      basePath: SOFA_BASE_PATH,
+      onRoute(info) {
+        openApi.addRoute(info, {
+          basePath: SOFA_BASE_PATH,
+        });
+      },
+    }),
+  );
+
+  expressApp.get('/openapi.json', (req, res) => {
+    return res.send(openApi.get());
+  });
+
+  server.applyMiddleware({app: expressApp});
+
+  return expressApp;
+}

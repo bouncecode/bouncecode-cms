@@ -1,7 +1,7 @@
-import { UserEntity } from "../../server/models/User/entities/User.entity";
-import { createConnection } from "typeorm";
+import {UserEntity} from '../../server/models/User/entities/User.entity';
+import {createConnection} from 'typeorm';
 
-(async function () {
+(async function() {
   const connection = await createConnection();
 
   console.log(
@@ -11,8 +11,8 @@ import { createConnection } from "typeorm";
       },
       {
         isAdmin: false,
-      }
-    )
+      },
+    ),
   );
 
   await connection.close();

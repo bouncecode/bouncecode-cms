@@ -8,8 +8,8 @@
  * @preferred
  */
 
-import { deny, allow, rule, shield, and, or, not } from "graphql-shield";
-import { Context } from "../express";
+import {deny, allow, rule, shield, and, or, not} from 'graphql-shield';
+import {Context} from '../express';
 
 /**
  * 권한을 확인하는 함수입니다.
@@ -49,7 +49,7 @@ const rules = {
  */
 const ruleTree = {
   Query: {
-    "*": deny,
+    '*': deny,
     test: allow,
     me: rules.isAuthorized,
     user: rules.isAdmin,
@@ -59,7 +59,7 @@ const ruleTree = {
     configLogs: rules.isAdmin,
   },
   Mutation: {
-    "*": deny,
+    '*': deny,
     test: allow,
     createToken: allow,
     refreshToken: allow,

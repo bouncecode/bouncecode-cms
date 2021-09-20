@@ -4,7 +4,7 @@
  * @module client.components.Test.views
  */
 
-import React from "react";
+import React from 'react';
 
 export interface ITestView {
   /**

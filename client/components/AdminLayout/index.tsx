@@ -4,28 +4,28 @@
  * @module client.components.AdminLayout
  */
 
-import React from "react";
-import Router from "next/router";
+import React from 'react';
+import Router from 'next/router';
 
-import { AdminLayoutDrawerView } from "./views/AdminLayoutDrawerView";
-import { useSignOutCallback } from "client/commons/useSignOut.callback";
-import { useMeQuery } from "client/commons/useMe.query";
-import { useSnackbar } from "notistack";
-import { PageLoadingView } from "../PageLoading/views/PageLoadingView";
-import { AdminLayoutView } from "./views/AdminLayoutView";
+import {AdminLayoutDrawerView} from './views/AdminLayoutDrawerView';
+import {useSignOutCallback} from 'client/commons/useSignOut.callback';
+import {useMeQuery} from 'client/commons/useMe.query';
+import {useSnackbar} from 'notistack';
+import {PageLoadingView} from '../PageLoading/views/PageLoadingView';
+import {AdminLayoutView} from './views/AdminLayoutView';
 
-export function AdminLayout({ children }) {
+export function AdminLayout({children}) {
   const handleLogout = useSignOutCallback();
-  const { enqueueSnackbar } = useSnackbar();
-  const { data, loading, error } = useMeQuery({
-    onCompleted: (data) => {
+  const {enqueueSnackbar} = useSnackbar();
+  const {data, loading, error} = useMeQuery({
+    onCompleted: data => {
       if (!data?.me?.isAdmin) {
-        enqueueSnackbar("권한이 없습니다.", { variant: "error" });
-        Router.push("/");
+        enqueueSnackbar('권한이 없습니다.', {variant: 'error'});
+        Router.push('/');
       }
     },
     onError: () => {
-      Router.push("/signin");
+      Router.push('/signin');
     },
   });
 

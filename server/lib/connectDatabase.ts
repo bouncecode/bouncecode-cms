@@ -4,8 +4,7 @@
  * @module server.lib
  */
 
-import { createConnection, getConnectionManager, BaseEntity } from "typeorm";
-import seeds from "../../seeds";
+import {createConnection, getConnectionManager, BaseEntity} from 'typeorm';
 
 /**
  * 데이터베이스와 연결하기위해 사용하는 함수입니다.
@@ -21,5 +20,4 @@ export const connectDatabase = async () => {
   } catch (e) {}
 
   await createConnection();
-  await seeds();
 };

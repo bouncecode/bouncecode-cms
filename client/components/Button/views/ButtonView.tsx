@@ -5,15 +5,15 @@
  */
 
 /* eslint-disable jsx-a11y/anchor-has-content */
-import * as React from "react";
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import * as React from 'react';
+import NextLink, {LinkProps as NextLinkProps} from 'next/link';
 import MuiButton, {
   ButtonProps as MuiButtonProps,
-} from "@material-ui/core/Button";
+} from '@material-ui/core/Button';
 
 type NextComposedProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href"
+  'href'
 > &
   NextLinkProps;
 
@@ -38,12 +38,11 @@ const NextComposed = React.forwardRef<HTMLAnchorElement, NextComposedProps>(
         replace={replace}
         scroll={scroll}
         shallow={shallow}
-        passHref={passHref}
-      >
+        passHref={passHref}>
         <a ref={ref} {...other} />
       </NextLink>
     );
-  }
+  },
 );
 
 interface LinkPropsBase {
@@ -52,20 +51,20 @@ interface LinkPropsBase {
 
 export type LinkProps = LinkPropsBase &
   NextComposedProps &
-  Omit<MuiButtonProps, "href">;
+  Omit<MuiButtonProps, 'href'>;
 
 const uriHack = (uri: string, hasSlash?: boolean) => {
-  const [pathname, qs] = String(uri).split("?", 2);
-  const query = qs ? `?${qs}` : "";
-  return pathname !== "/"
-    ? String(pathname).replace(/\/$/, hasSlash ? "/" : "") + query
+  const [pathname, qs] = String(uri).split('?', 2);
+  const query = qs ? `?${qs}` : '';
+  return pathname !== '/'
+    ? String(pathname).replace(/\/$/, hasSlash ? '/' : '') + query
     : pathname + query;
 };
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/#with-link
 function ButtonComponent(props: LinkProps) {
-  const { href: pathname, innerRef, as: asPath, ...other } = props;
+  const {href: pathname, innerRef, as: asPath, ...other} = props;
 
   const href = uriHack(String(pathname));
   const as = uriHack(String(asPath || href), true);
@@ -89,5 +88,5 @@ function ButtonComponent(props: LinkProps) {
  * Material UI 의 버튼과 Next.js 의 버튼의 기능을 통합한 컴포넌트입니다.
  */
 export const ButtonView = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (props, ref) => <ButtonComponent {...props} innerRef={ref} />
+  (props, ref) => <ButtonComponent {...props} innerRef={ref} />,
 );

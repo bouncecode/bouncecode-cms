@@ -4,22 +4,22 @@
  * @module pages
  */
 
-import React from "react";
-import Head from "next/head";
-import { SnackbarProvider } from "notistack";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "client/lib/theme";
-import { withApollo } from "client/lib/apollo";
-import { PageLoading } from "client/components/PageLoading";
+import React from 'react';
+import Head from 'next/head';
+import {SnackbarProvider} from 'notistack';
+import {ThemeProvider} from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import theme from 'client/lib/theme';
+import {withApollo} from 'client/lib/apollo';
+import {PageLoading} from 'client/components/PageLoading';
 
 function MyApp(props) {
-  const { Component, pageProps } = props;
-  const Layout = Component.Layout || (({ children }) => <>{children}</>);
+  const {Component, pageProps} = props;
+  const Layout = Component.Layout || (({children}) => <>{children}</>);
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector("#jss-server-side");
+    const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
@@ -48,4 +48,4 @@ function MyApp(props) {
   );
 }
 
-export default withApollo({ ssr: true })(MyApp);
+export default withApollo({ssr: true})(MyApp);

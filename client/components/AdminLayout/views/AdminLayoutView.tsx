@@ -4,24 +4,24 @@
  * @module client.components.AdminLayout.views
  */
 
-import React from "react";
+import React from 'react';
 
 // Material Core
-import { useTheme } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import AppBar from "@material-ui/core/AppBar";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import {useTheme} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 // Icons
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuIcon from '@material-ui/icons/Menu';
 
 // Styles
-import { useAdminLayoutViewStyles } from "../styles/AdminLayoutView.styles";
-import { IMeQueryObject } from "client/commons/useMe.query";
+import {useAdminLayoutViewStyles} from '../styles/AdminLayoutView.styles';
+import {IMeQueryObject} from 'client/commons/useMe.query';
 
 export interface IAdminLayoutView {
   /**
@@ -63,16 +63,14 @@ export function AdminLayoutView(props: IAdminLayoutView) {
         position="fixed"
         color="default"
         elevation={1}
-        className={classes.appBar}
-      >
+        className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
+            className={classes.menuButton}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -94,7 +92,7 @@ export function AdminLayoutView(props: IAdminLayoutView) {
           <Drawer
             // container={container}
             variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
@@ -102,8 +100,7 @@ export function AdminLayoutView(props: IAdminLayoutView) {
             }}
             ModalProps={{
               keepMounted: true, // Better open performance on mobile.
-            }}
-          >
+            }}>
             {props.drawer}
           </Drawer>
         </Hidden>
@@ -113,8 +110,7 @@ export function AdminLayoutView(props: IAdminLayoutView) {
               paper: classes.drawerPaper,
             }}
             variant="permanent"
-            open
-          >
+            open>
             {props.drawer}
           </Drawer>
         </Hidden>

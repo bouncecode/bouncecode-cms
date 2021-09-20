@@ -4,4 +4,4 @@
  * @module client.components.Button
  */
 
-export { ButtonView as Button } from "./views/ButtonView";
+export {ButtonView as Button} from './views/ButtonView';

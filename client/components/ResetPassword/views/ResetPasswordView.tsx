@@ -4,17 +4,17 @@
  * @module client.components.ResetPassword.views
  */
 
-import React from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { useResetPasswordViewFormik } from "../hooks/useResetPasswordView.formik";
-import { useResetPasswordViewStyles } from "../styles/ResetPasswordView.styles";
-import { Link } from "client/components/Link";
-import { FormikValues, FormikHelpers } from "formik";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import {useResetPasswordViewFormik} from '../hooks/useResetPasswordView.formik';
+import {useResetPasswordViewStyles} from '../styles/ResetPasswordView.styles';
+import {Link} from 'client/components/Link';
+import {FormikValues, FormikHelpers} from 'formik';
 
 export interface IResetPasswordView {
   /**
@@ -22,7 +22,7 @@ export interface IResetPasswordView {
    */
   onSubmit: (
     values: FormikValues,
-    formikHelpers: FormikHelpers<FormikValues>
+    formikHelpers: FormikHelpers<FormikValues>,
   ) => void | Promise<any>;
 }
 
@@ -63,7 +63,7 @@ export function ResetPasswordView(props: IResetPasswordView) {
                 autoFocus
                 onChange={handleChange}
                 value={values.email}
-                helperText={touched.email ? errors.email : ""}
+                helperText={touched.email ? errors.email : ''}
                 error={touched.email && Boolean(errors.email)}
               />
             </Grid>
@@ -76,8 +76,7 @@ export function ResetPasswordView(props: IResetPasswordView) {
             size="large"
             className={classes.submit}
             disabled={isSubmitting}
-            endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}
-          >
+            endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             비밀번호 찾기
           </Button>
           <Grid container justify="flex-end">

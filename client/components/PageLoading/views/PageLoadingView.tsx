@@ -4,11 +4,11 @@
  * @module client.components.PageLoading.views
  */
 
-import React from "react";
+import React from 'react';
 
 // @material-ui/core components
-import { AppBar, LinearProgress } from "@material-ui/core";
-import { usePageLoadingViewStyles } from "../styles/PageLoadingView.styles";
+import {AppBar, LinearProgress} from '@material-ui/core';
+import {usePageLoadingViewStyles} from '../styles/PageLoadingView.styles';
 
 /**
  * 페이지 로딩 애니메이션입니다.
@@ -21,8 +21,7 @@ export function PageLoadingView() {
       position="fixed"
       color="transparent"
       elevation={0}
-      className={classes.appbar}
-    >
+      className={classes.appbar}>
       <LinearProgress color="secondary" />
     </AppBar>
   );

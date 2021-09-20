@@ -7,13 +7,13 @@
  * @preferred
  */
 
-import { Resolver, Query, Mutation, Ctx, Arg } from "type-graphql";
-import { UserEntity } from "../entities/User.entity";
-import { UserObject } from "../objects/User.object";
-import { UserCreateInput } from "../inputs/UserCreate.input";
-import { UserUpdateInput } from "../inputs/UserUpdate.input";
-import { UserWhereInput } from "../inputs/UserWhere.input";
-import { Context } from "../../../express";
+import {Resolver, Query, Mutation, Ctx, Arg} from 'type-graphql';
+import {UserEntity} from '../entities/User.entity';
+import {UserObject} from '../objects/User.object';
+import {UserCreateInput} from '../inputs/UserCreate.input';
+import {UserUpdateInput} from '../inputs/UserUpdate.input';
+import {UserWhereInput} from '../inputs/UserWhere.input';
+import {Context} from '../../../express';
 
 /**
  * User 와 관련된 요청을 처리합니다.
@@ -46,7 +46,7 @@ export class UserResolver {
    * @author BounceCode, Inc.
    */
   @Query(() => UserObject)
-  async user(@Arg("where") where: UserWhereInput) {
+  async user(@Arg('where') where: UserWhereInput) {
     try {
       return await UserEntity.findOne({
         where,
@@ -63,9 +63,9 @@ export class UserResolver {
    */
   @Query(() => [UserObject])
   async users(
-    @Arg("where", { nullable: true }) where: UserWhereInput,
-    @Arg("skip") skip: number,
-    @Arg("take") take: number
+    @Arg('where', {nullable: true}) where: UserWhereInput,
+    @Arg('skip') skip: number,
+    @Arg('take') take: number,
   ) {
     try {
       return await UserEntity.find({
@@ -84,7 +84,7 @@ export class UserResolver {
    * @author BounceCode, Inc.
    */
   @Mutation(() => UserObject)
-  async createUser(@Arg("data") data: UserCreateInput) {
+  async createUser(@Arg('data') data: UserCreateInput) {
     try {
       return await UserEntity.create(data).save();
     } catch (e) {
@@ -99,8 +99,8 @@ export class UserResolver {
    */
   @Mutation(() => UserObject)
   async updateUser(
-    @Arg("where") where: UserWhereInput,
-    @Arg("data") data: UserUpdateInput
+    @Arg('where') where: UserWhereInput,
+    @Arg('data') data: UserUpdateInput,
   ) {
     try {
       return await UserEntity.update(where, data);
@@ -115,7 +115,7 @@ export class UserResolver {
    * @author BounceCode, Inc.
    */
   @Mutation(() => Boolean)
-  async deleteUser(@Arg("where") where: UserWhereInput) {
+  async deleteUser(@Arg('where') where: UserWhereInput) {
     try {
       return await UserEntity.delete(where);
     } catch (e) {

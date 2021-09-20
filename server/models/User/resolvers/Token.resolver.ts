@@ -7,15 +7,15 @@
  * @preferred
  */
 
-import jwt from "jsonwebtoken";
-import { Resolver, Mutation, Arg } from "type-graphql";
-import { TokenObject } from "../objects/Token.object";
-import { UserEntity } from "../entities/User.entity";
-import { createHmac } from "crypto";
-import { CERT_PUBLIC, CERT_PRIVATE } from "../../../../env.config";
-import { TokenCreateInput } from "../inputs/TokenCreate.input";
+import jwt from 'jsonwebtoken';
+import {Resolver, Mutation, Arg} from 'type-graphql';
+import {TokenObject} from '../objects/Token.object';
+import {UserEntity} from '../entities/User.entity';
+import {CERT_PUBLIC, CERT_PRIVATE} from '../../../../env.config';
+import {TokenCreateInput} from '../inputs/TokenCreate.input';
+import bcrypt from 'bcrypt';
 
-const JWT_ISSUER = process.env.JWT_ISSUER || "";
+const JWT_ISSUER = process.env.JWT_ISSUER || '';
 
 /**
  * 사용자의 요청을 처리하기위한 Resolver 입니다.
@@ -30,10 +30,12 @@ export class TokenResolver {
    * @author BounceCode, Inc.
    */
   @Mutation(() => TokenObject)
-  async createToken(@Arg("data") data: TokenCreateInput) {
-    const user = await UserEntity.findOne({ email: data.email });
-    if (user.password !== createHmac("sha256", data.password).digest("hex")) {
-      throw new Error("Invalid password.");
+  async createToken(@Arg('data') data: TokenCreateInput) {
+    const user = await UserEntity.findOne({email: data.email});
+
+    const matched = await bcrypt.compare(data.password, user.passwordEncrypted);
+    if (!matched) {
+      throw new Error('Invalid password.');
     }
 
     const refresh_token = await jwt.sign(
@@ -44,20 +46,20 @@ export class TokenResolver {
       },
       CERT_PRIVATE,
       {
-        algorithm: "ES256",
-        subject: "refresh_token",
+        algorithm: 'ES256',
+        subject: 'refresh_token',
         expiresIn: 60 * 60 * 24 * 60, // 60d
         issuer: JWT_ISSUER,
-      }
+      },
     );
 
-    const { access_token, expires_in } = await this.refreshToken(refresh_token);
+    const {access_token, expires_in} = await this.refreshToken(refresh_token);
     const tokenObject = new TokenObject();
     tokenObject.token = access_token;
     tokenObject.access_token = access_token;
     tokenObject.refresh_token = refresh_token;
     tokenObject.expires_in = expires_in;
-    tokenObject.token_type = "Bearer";
+    tokenObject.token_type = 'Bearer';
     return tokenObject;
   }
 
@@ -67,11 +69,11 @@ export class TokenResolver {
    * @author BounceCode, Inc.
    */
   @Mutation(() => TokenObject)
-  async refreshToken(@Arg("refreshToken") refreshToken: string) {
+  async refreshToken(@Arg('refreshToken') refreshToken: string) {
     const expiresIn = 60 * 60 * 2; // 2h
     const user = await jwt.verify(refreshToken, CERT_PUBLIC);
-    if (user.sub !== "refresh_token") {
-      throw new Error("Invalid token");
+    if (user.sub !== 'refresh_token') {
+      throw new Error('Invalid token');
     }
 
     const access_token = await jwt.sign(
@@ -82,11 +84,11 @@ export class TokenResolver {
       },
       CERT_PRIVATE,
       {
-        algorithm: "ES256",
-        subject: "access_token",
+        algorithm: 'ES256',
+        subject: 'access_token',
         expiresIn,
         issuer: JWT_ISSUER,
-      }
+      },
     );
 
     const tokenObject = new TokenObject();
@@ -94,7 +96,7 @@ export class TokenResolver {
     tokenObject.access_token = access_token;
     tokenObject.refresh_token = undefined;
     tokenObject.expires_in = expiresIn;
-    tokenObject.token_type = "Bearer";
+    tokenObject.token_type = 'Bearer';
     return tokenObject;
   }
 }

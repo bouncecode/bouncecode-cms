@@ -4,19 +4,19 @@
  * @module server.models.User.resolvers
  */
 
-import { getConnection } from "typeorm";
-import { connectDatabase } from "../../../lib/connectDatabase";
-import { TokenResolver } from "./Token.resolver";
-import { UserResolver } from "./User.resolver";
-import { UserCreateInput } from "../inputs/UserCreate.input";
-import { UserWhereInput } from "../inputs/UserWhere.input";
-import { TokenCreateInput } from "../inputs/TokenCreate.input";
-import { parseAuthHeader } from "../../../lib/parseAuthHeader";
+import {getConnection} from 'typeorm';
+import {connectDatabase} from '../../../lib/connectDatabase';
+import {TokenResolver} from './Token.resolver';
+import {UserResolver} from './User.resolver';
+import {UserCreateInput} from '../inputs/UserCreate.input';
+import {UserWhereInput} from '../inputs/UserWhere.input';
+import {TokenCreateInput} from '../inputs/TokenCreate.input';
+import {parseAuthHeader} from '../../../lib/parseAuthHeader';
 
 const userResolver = new UserResolver();
 const tokenResolver = new TokenResolver();
-const email = "test_" + Math.random() + "@example.com";
-const password = "123456_" + Math.random();
+const email = 'test_' + Math.random() + '@example.com';
+const password = '123456_' + Math.random();
 let id = null;
 
 beforeAll(async () => {
@@ -31,7 +31,7 @@ beforeEach(async () => {
   const userCreateInput = new UserCreateInput();
   userCreateInput.email = email;
   userCreateInput.password = password;
-  userCreateInput.payload = { foo: "테스트" };
+  userCreateInput.payload = {foo: '테스트'};
 
   const createdUser = await userResolver.createUser(userCreateInput);
   id = createdUser.id;
@@ -51,8 +51,8 @@ afterEach(async () => {
   expect(user).toBeUndefined();
 });
 
-describe("액세스 토큰", () => {
-  it("액세스 토큰을 발급받습니다.", async () => {
+describe('액세스 토큰', () => {
+  it('액세스 토큰을 발급받습니다.', async () => {
     const tokenCreateInput = new TokenCreateInput();
     tokenCreateInput.email = email;
     tokenCreateInput.password = password;
@@ -63,22 +63,22 @@ describe("액세스 토큰", () => {
   });
 });
 
-describe("리프레시 토큰", () => {
-  it("액세스 토큰을 재발급 받습니다.", async () => {
+describe('리프레시 토큰', () => {
+  it('액세스 토큰을 재발급 받습니다.', async () => {
     const tokenCreateInput = new TokenCreateInput();
     tokenCreateInput.email = email;
     tokenCreateInput.password = password;
 
     const accessTokenObject = await tokenResolver.createToken(tokenCreateInput);
     const accessTokenJwt = await parseAuthHeader(
-      accessTokenObject.access_token
+      accessTokenObject.access_token,
     );
 
     const refreshTokenObject = await tokenResolver.refreshToken(
-      accessTokenObject.refresh_token
+      accessTokenObject.refresh_token,
     );
     const newAccessTokenJwt = await parseAuthHeader(
-      refreshTokenObject.access_token
+      refreshTokenObject.access_token,
     );
 
     expect(newAccessTokenJwt?.email).toBe(tokenCreateInput.email);

@@ -4,11 +4,11 @@
  * @module client.components.AdminLayout.views
  */
 
-import * as React from "react";
-import { AdminLayoutDrawerView } from "./AdminLayoutDrawerView";
+import * as React from 'react';
+import {AdminLayoutDrawerView} from './AdminLayoutDrawerView';
 
 export default {
-  title: "AdminLayout/AdminLayoutDrawerView",
+  title: 'AdminLayout/AdminLayoutDrawerView',
   component: AdminLayoutDrawerView,
 };
 

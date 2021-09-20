@@ -4,8 +4,8 @@
  * @module server.models.Config.objects
  */
 
-import { ObjectType, Field, ID } from "type-graphql";
-import GraphQLJSON from "graphql-type-json";
+import {ObjectType, Field, ID} from 'type-graphql';
+import GraphQLJSON from 'graphql-type-json';
 
 /**
  * {@link ConfigResolver} 에서 반환되는 데이터를 확인하기위한 ObjectType 입니다.
@@ -23,7 +23,7 @@ export class ConfigObject {
   @Field()
   isPublic: Boolean;
 
-  @Field(() => GraphQLJSON, { nullable: true })
+  @Field(() => GraphQLJSON, {nullable: true})
   payload?: any;
 
   @Field()

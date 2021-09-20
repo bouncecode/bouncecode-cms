@@ -4,11 +4,11 @@
  * @module client.components.PageLoading.views
  */
 
-import * as React from "react";
-import { PageLoadingView } from "./PageLoadingView";
+import * as React from 'react';
+import {PageLoadingView} from './PageLoadingView';
 
 export default {
-  title: "PageLoading/PageLoadingView",
+  title: 'PageLoading/PageLoadingView',
   component: PageLoadingView,
 };
 

@@ -7,17 +7,17 @@
  * @preferred
  */
 
-import { Resolver, Query, Mutation, Ctx, Arg } from "type-graphql";
-import { ConfigObject } from "../objects/Config.object";
-import { ConfigWhereInput } from "../inputs/ConfigWhere.input";
-import { ConfigUniqueWhereInput } from "../inputs/ConfigUniqueWhere.input";
-import { ConfigUpsertInput } from "../inputs/ConfigUpsert.input";
-import { ConfigEntity } from "../entities/Config.entity";
-import { Context } from "../../../express";
-import { ConfigLogEntity } from "../entities/ConfigLog.entity";
-import { ConfigLogWhereInput } from "../inputs/ConfigLogWhere.input";
-import { LessThanOrEqual } from "typeorm";
-import { ConfigLogObject } from "../objects/ConfigLog.object";
+import {Resolver, Query, Mutation, Ctx, Arg} from 'type-graphql';
+import {ConfigObject} from '../objects/Config.object';
+import {ConfigWhereInput} from '../inputs/ConfigWhere.input';
+import {ConfigUniqueWhereInput} from '../inputs/ConfigUniqueWhere.input';
+import {ConfigUpsertInput} from '../inputs/ConfigUpsert.input';
+import {ConfigEntity} from '../entities/Config.entity';
+import {Context} from '../../../express';
+import {ConfigLogEntity} from '../entities/ConfigLog.entity';
+import {ConfigLogWhereInput} from '../inputs/ConfigLogWhere.input';
+import {LessThanOrEqual} from 'typeorm';
+import {ConfigLogObject} from '../objects/ConfigLog.object';
 
 /**
  * Config 와 관련된 요청을 처리합니다.
@@ -32,8 +32,8 @@ export class ConfigResolver {
    * @author BounceCode, Inc.
    */
   @Query(() => ConfigObject)
-  async config(@Arg("where") where: ConfigUniqueWhereInput) {
-    return await ConfigEntity.findOne({ id: where.id, deletedBy: null });
+  async config(@Arg('where') where: ConfigUniqueWhereInput) {
+    return await ConfigEntity.findOne({id: where.id, deletedBy: null});
   }
 
   /**
@@ -42,8 +42,8 @@ export class ConfigResolver {
    * @author BounceCode, Inc.
    */
   @Query(() => [ConfigObject])
-  async configs(@Arg("where") where: ConfigWhereInput) {
-    return await ConfigEntity.find({ ...where, deletedBy: null });
+  async configs(@Arg('where') where: ConfigWhereInput) {
+    return await ConfigEntity.find({...where, deletedBy: null});
   }
 
   /**
@@ -53,16 +53,16 @@ export class ConfigResolver {
    */
   @Query(() => [ConfigLogObject])
   async configLogs(
-    @Arg("where") where: ConfigLogWhereInput,
-    @Arg("before", { nullable: true }) before: number,
-    @Arg("take") take: number
+    @Arg('where') where: ConfigLogWhereInput,
+    @Arg('before', {nullable: true}) before: number,
+    @Arg('take') take: number,
   ) {
     return await ConfigLogEntity.find({
       where: {
         ...where,
-        ...(before ? { id: LessThanOrEqual(before) } : undefined),
+        ...(before ? {id: LessThanOrEqual(before)} : undefined),
       },
-      order: { id: "DESC" },
+      order: {id: 'DESC'},
       take,
     });
   }
@@ -74,10 +74,10 @@ export class ConfigResolver {
    */
   @Mutation(() => ConfigObject)
   async upsertConfig(
-    @Arg("data") data: ConfigUpsertInput,
-    @Ctx() ctx: Context
+    @Arg('data') data: ConfigUpsertInput,
+    @Ctx() ctx: Context,
   ) {
-    let entity = await ConfigEntity.findOne({ id: data.id });
+    let entity = await ConfigEntity.findOne({id: data.id});
 
     if (!entity) {
       entity = ConfigEntity.create(data);
@@ -107,11 +107,11 @@ export class ConfigResolver {
    */
   @Mutation(() => Boolean)
   async deleteConfig(
-    @Arg("where") where: ConfigUniqueWhereInput,
-    @Ctx() ctx: Context
+    @Arg('where') where: ConfigUniqueWhereInput,
+    @Ctx() ctx: Context,
   ) {
-    const entity = await ConfigEntity.findOne({ id: where.id });
-    ConfigEntity.merge(entity, { deletedBy: ctx.user.id });
+    const entity = await ConfigEntity.findOne({id: where.id});
+    ConfigEntity.merge(entity, {deletedBy: ctx.user.id});
     return Boolean(await entity.save());
   }
 }

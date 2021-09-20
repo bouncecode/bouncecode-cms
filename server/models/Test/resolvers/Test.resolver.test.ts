@@ -1,9 +1,9 @@
-import { TestResolver } from "./Test.resolver";
+import {TestResolver} from './Test.resolver';
 
-describe("Test", () => {
-  const message = "message";
+describe('Test', () => {
+  const message = 'message';
 
-  test("test(message)", async () => {
+  test('test(message)', async () => {
     const testResolver = new TestResolver();
     const testObject = await testResolver.test(message);
     expect(testObject?.message).toBe(message);

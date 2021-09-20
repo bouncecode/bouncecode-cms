@@ -4,15 +4,15 @@
  * @module server.models.Config.entities
  */
 
-import { getConnection } from "typeorm";
-import { connectDatabase } from "../../../lib/connectDatabase";
-import { ConfigEntity } from "./Config.entity";
-import { ConfigLogEntity } from "./ConfigLog.entity";
+import {getConnection} from 'typeorm';
+import {connectDatabase} from '../../../lib/connectDatabase';
+import {ConfigEntity} from './Config.entity';
+import {ConfigLogEntity} from './ConfigLog.entity';
 
 const userId = 1;
-const createdPayload: any = { foo: "foo_" + Math.random() };
-const updatedPayload: any = { foo: "bar_" + Math.random() };
-const id = "test_" + Math.random();
+const createdPayload: any = {foo: 'foo_' + Math.random()};
+const updatedPayload: any = {foo: 'bar_' + Math.random()};
+const id = 'test_' + Math.random();
 const isPublic = true;
 
 beforeAll(async () => {
@@ -23,7 +23,7 @@ afterAll(async () => {
   await getConnection().close();
 });
 
-describe("레코드 조회", () => {
+describe('레코드 조회', () => {
   beforeAll(async () => {
     await ConfigEntity.create({
       id,
@@ -34,25 +34,25 @@ describe("레코드 조회", () => {
   });
 
   afterAll(async () => {
-    await ConfigEntity.delete({ id });
-    await ConfigLogEntity.delete({ originId: id });
+    await ConfigEntity.delete({id});
+    await ConfigLogEntity.delete({originId: id});
   });
 
-  it("추가한 레코드를 조회합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('추가한 레코드를 조회합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     expect(entity.payload.foo).toBe(createdPayload.foo);
     expect(entity.createdBy).toBe(userId);
     expect(entity.createdDate).toBeTruthy();
   });
 });
 
-describe("레코드 추가", () => {
+describe('레코드 추가', () => {
   afterAll(async () => {
-    await ConfigEntity.delete({ id });
-    await ConfigLogEntity.delete({ originId: id });
+    await ConfigEntity.delete({id});
+    await ConfigLogEntity.delete({originId: id});
   });
 
-  it("레코드를 추가합니다.", async () => {
+  it('레코드를 추가합니다.', async () => {
     await ConfigEntity.create({
       id,
       createdBy: userId,
@@ -69,13 +69,13 @@ describe("레코드 추가", () => {
     expect(createdEntity.createdDate).toBeTruthy();
   });
 
-  it("레코드를 추가하면 로그를 기록해야합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('레코드를 추가하면 로그를 기록해야합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     expect(entity.payload.foo).toBe(createdPayload.foo);
 
     const logEntity = await ConfigLogEntity.findOne(
-      { originId: id },
-      { order: { id: "DESC" } }
+      {originId: id},
+      {order: {id: 'DESC'}},
     );
 
     delete entity.id;
@@ -85,7 +85,7 @@ describe("레코드 추가", () => {
   });
 });
 
-describe("레코드 수정", () => {
+describe('레코드 수정', () => {
   beforeAll(async () => {
     await ConfigEntity.create({
       id,
@@ -96,12 +96,12 @@ describe("레코드 수정", () => {
   });
 
   afterAll(async () => {
-    await ConfigEntity.delete({ id });
-    await ConfigLogEntity.delete({ originId: id });
+    await ConfigEntity.delete({id});
+    await ConfigLogEntity.delete({originId: id});
   });
 
-  it("레코드를 수정합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('레코드를 수정합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     entity.payload = updatedPayload;
     entity.updatedBy = userId;
     await entity.save();
@@ -115,13 +115,13 @@ describe("레코드 수정", () => {
     expect(updatedEntity.updatedDate).toBeTruthy();
   });
 
-  it("레코드를 수정하면 로그를 기록해야합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('레코드를 수정하면 로그를 기록해야합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     expect(entity.payload.foo).toBe(updatedPayload.foo);
 
     const logEntity = await ConfigLogEntity.findOne(
-      { originId: id },
-      { order: { id: "DESC" } }
+      {originId: id},
+      {order: {id: 'DESC'}},
     );
 
     delete entity.id;
@@ -131,7 +131,7 @@ describe("레코드 수정", () => {
   });
 });
 
-describe("레코드 삭제", () => {
+describe('레코드 삭제', () => {
   beforeAll(async () => {
     await ConfigEntity.create({
       id,
@@ -142,12 +142,12 @@ describe("레코드 삭제", () => {
   });
 
   afterAll(async () => {
-    await ConfigEntity.delete({ id });
-    await ConfigLogEntity.delete({ originId: id });
+    await ConfigEntity.delete({id});
+    await ConfigLogEntity.delete({originId: id});
   });
 
-  it("레코드를 삭제합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('레코드를 삭제합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     entity.deletedBy = userId;
     await entity.save();
 
@@ -159,13 +159,13 @@ describe("레코드 삭제", () => {
     expect(updatedEntity.deletedDate).toBeTruthy();
   });
 
-  it("레코드를 삭제하면 로그를 기록해야합니다.", async () => {
-    const entity = await ConfigEntity.findOne({ id });
+  it('레코드를 삭제하면 로그를 기록해야합니다.', async () => {
+    const entity = await ConfigEntity.findOne({id});
     expect(entity.deletedBy).toBe(userId);
 
     const logEntity = await ConfigLogEntity.findOne(
-      { originId: id },
-      { order: { id: "DESC" } }
+      {originId: id},
+      {order: {id: 'DESC'}},
     );
 
     delete entity.id;

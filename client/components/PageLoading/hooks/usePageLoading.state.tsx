@@ -4,31 +4,31 @@
  * @module client.components.PageLoading.hooks
  */
 
-import { useEffect, useState } from "react";
-import Router from "next/router";
+import {useEffect, useState} from 'react';
+import Router from 'next/router';
 
 export function usePageLoadingState() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const routeChangeStart = (url) => {
+    const routeChangeStart = url => {
       console.log(`Loading: ${url}`);
       setLoading(true);
     };
 
-    const routeChangeEnd = (url) => {
+    const routeChangeEnd = url => {
       // firebase.analytics().setCurrentScreen(url);
       setLoading(false);
     };
 
-    Router.events.on("routeChangeStart", routeChangeStart);
-    Router.events.on("routeChangeComplete", routeChangeEnd);
-    Router.events.on("routeChangeError", routeChangeEnd);
+    Router.events.on('routeChangeStart', routeChangeStart);
+    Router.events.on('routeChangeComplete', routeChangeEnd);
+    Router.events.on('routeChangeError', routeChangeEnd);
 
     return () => {
-      Router.events.off("routeChangeStart", routeChangeStart);
-      Router.events.off("routeChangeComplete", routeChangeEnd);
-      Router.events.off("routeChangeError", routeChangeEnd);
+      Router.events.off('routeChangeStart', routeChangeStart);
+      Router.events.off('routeChangeComplete', routeChangeEnd);
+      Router.events.off('routeChangeError', routeChangeEnd);
     };
   }, []);
 

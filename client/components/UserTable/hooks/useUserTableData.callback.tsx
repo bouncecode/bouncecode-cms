@@ -4,11 +4,11 @@
  * @module client.components.UserTable.hooks
  */
 
-import { useApolloClient } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import { QueryOptions, OperationVariables } from "apollo-client";
-import { useCallback } from "react";
-import { ITableDataCallback } from "client/commons/interfaces";
+import {useApolloClient} from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import {QueryOptions, OperationVariables} from 'apollo-client';
+import {useCallback} from 'react';
+import {ITableDataCallback} from 'client/commons/interfaces';
 
 const USERS_QUERY = gql`
   query($take: Float!, $skip: Float!, $where: UserWhereInput) {
@@ -26,13 +26,13 @@ const USERS_QUERY = gql`
 `;
 
 export const useUserTableDataCallback = (
-  options: Partial<QueryOptions<OperationVariables>> = {}
+  options: Partial<QueryOptions<OperationVariables>> = {},
 ) => {
   const client = useApolloClient();
   // const { enqueueSnackbar } = useSnackbar();
 
-  return useCallback<ITableDataCallback>(async (query) => {
-    const { data } = await client.query({
+  return useCallback<ITableDataCallback>(async query => {
+    const {data} = await client.query({
       ...options,
       query: USERS_QUERY,
       variables: {

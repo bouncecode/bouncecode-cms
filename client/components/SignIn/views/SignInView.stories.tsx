@@ -4,20 +4,20 @@
  * @module client.components.SignIn.views
  */
 
-import * as React from "react";
-import { action } from "@storybook/addon-actions";
-import { SnackbarProvider } from "notistack";
-import { SignInView } from "./SignInView";
+import * as React from 'react';
+import {action} from '@storybook/addon-actions';
+import {SnackbarProvider} from 'notistack';
+import {SignInView} from './SignInView';
 
 export default {
-  title: "SignIn/SignInView",
+  title: 'SignIn/SignInView',
   component: SignInView,
 };
 
 export const defaultView = () => {
   return (
     <SnackbarProvider>
-      <SignInView onSubmit={action("onSubmit")} />
+      <SignInView onSubmit={action('onSubmit')} />
     </SnackbarProvider>
   );
 };

@@ -4,8 +4,8 @@
  * @module pages
  */
 
-import React from "react";
-import { ResetPassword } from "client/components/ResetPassword";
+import React from 'react';
+import {ResetPassword} from 'client/components/ResetPassword';
 
 function ResetPasswordPage() {
   return <ResetPassword />;

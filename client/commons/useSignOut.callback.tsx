@@ -4,10 +4,10 @@
  * @module client.commons
  */
 
-import { useCallback } from "react";
-import Router from "next/router";
-import { useApolloClient } from "@apollo/react-hooks";
-import { resetToken } from "client/lib/token";
+import {useCallback} from 'react';
+import Router from 'next/router';
+import {useApolloClient} from '@apollo/react-hooks';
+import {resetToken} from 'client/lib/token';
 
 /**
  * 로그아웃합니다.
@@ -19,6 +19,6 @@ export function useSignOutCallback() {
 
   return useCallback(() => {
     resetToken(client);
-    Router.push("/signin");
+    Router.push('/signin');
   }, []);
 }

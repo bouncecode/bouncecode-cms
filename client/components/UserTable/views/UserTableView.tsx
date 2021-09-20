@@ -4,19 +4,19 @@
  * @module client.components.UserTable.views
  */
 
-import React from "react";
-import MaterialTable from "material-table";
-import { useUserTableViewColumnsMemo } from "../hooks/useUserTableViewColumns.memo";
-import { ITableDataCallback } from "client/commons/interfaces";
+import React from 'react';
+import MaterialTable from 'material-table';
+import {useUserTableViewColumnsMemo} from '../hooks/useUserTableViewColumns.memo';
+import {ITableDataCallback} from 'client/commons/interfaces';
 
 const localization = {
   header: {
-    actions: "",
+    actions: '',
   },
   body: {
-    emptyDataSourceMessage: "데이터가 없습니다.",
+    emptyDataSourceMessage: '데이터가 없습니다.',
     filterRow: {
-      filterTooltip: "필터",
+      filterTooltip: '필터',
     },
   },
 };

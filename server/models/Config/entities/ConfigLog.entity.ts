@@ -10,13 +10,13 @@ import {
   Column,
   BaseEntity,
   Index,
-} from "typeorm";
+} from 'typeorm';
 
 /**
  * 변경된 내역에대한 로그입니다.
  */
 @Entity()
-@Index(["id", "originId"])
+@Index(['id', 'originId'])
 export class ConfigLogEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -31,27 +31,27 @@ export class ConfigLogEntity extends BaseEntity {
   @Column()
   isPublic: boolean;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   type?: string;
 
-  @Column("json", { nullable: true })
+  @Column('json', {nullable: true})
   payload?: any;
 
   @Column()
   createdBy: number;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   updatedBy?: number;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   deletedBy?: number;
 
   @Column()
   createdDate: Date;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   updatedDate?: Date;
 
-  @Column({ nullable: true })
+  @Column({nullable: true})
   deletedDate?: Date;
 }
