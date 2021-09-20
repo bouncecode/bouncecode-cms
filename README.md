@@ -9,8 +9,8 @@
 ## 실행 방법
 
 ```bash
-# 서버 실행
-docker-compose up --build
+# 서버 실행 (빌드시 --build 옵션을 추가하세요.)
+docker-compose up
 
 # 시드 데이터 추가 (최초 관리자 계정 생성 등)
 docker-compose run --rm app.bouncecode-cms \
