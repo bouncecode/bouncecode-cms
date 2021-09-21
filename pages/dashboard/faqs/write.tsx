@@ -4,8 +4,8 @@
  * @module pages.admin.faqs
  */
 
-import React from "react";
-import { AdminLayout } from "client/components/AdminLayout";
+import React from 'react';
+import AdminLayout from 'client/layouts/DashboardLayout';
 
 function FaqsWritePage() {
   return (

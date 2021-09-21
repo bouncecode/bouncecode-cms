@@ -4,9 +4,9 @@
  * @module pages.admin.settings
  */
 
-import React from "react";
-import { AdminLayout } from "client/components/AdminLayout";
-import { Test } from "client/components/Test";
+import React from 'react';
+import AdminLayout from '../../../client/layouts/DashboardLayout';
+import {Test} from '../../../client/commons/Test';
 
 function SettingsPage() {
   return (

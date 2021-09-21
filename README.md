@@ -24,7 +24,7 @@ docker-compose run --rm app.bouncecode-cms \
 yarn --ignore-engines
 
 # Storybook 실행
-yarn storybook
+yarn --ignore-engines storybook
 
 # Jest 유닛 테스트
 docker-compose run --rm app.bouncecode-cms \

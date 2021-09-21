@@ -4,8 +4,8 @@
  * @module pages.admin.pages
  */
 
-import React from "react";
-import { AdminLayout } from "client/components/AdminLayout";
+import React from 'react';
+import AdminLayout from 'client/layouts/DashboardLayout';
 
 function PagesWritePage() {
   return (

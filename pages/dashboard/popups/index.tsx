@@ -4,8 +4,8 @@
  * @module pages.admin.popups
  */
 
-import React from "react";
-import { AdminLayout } from "client/components/AdminLayout";
+import React from 'react';
+import AdminLayout from 'client/layouts/DashboardLayout';
 
 function PopupsPage() {
   return (

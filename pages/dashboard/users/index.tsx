@@ -4,9 +4,9 @@
  * @module pages.admin.users
  */
 
-import React from "react";
-import { AdminLayout } from "client/components/AdminLayout";
-import { UserTable } from "client/components/UserTable";
+import React from 'react';
+import AdminLayout from '../../../client/layouts/DashboardLayout';
+import {UserTable} from '../../../client/components/admin/UserTable';
 
 function UsersPage() {
   return (

@@ -11,7 +11,7 @@ import {ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from 'client/lib/theme';
 import {withApollo} from 'client/lib/apollo';
-import {PageLoading} from 'client/components/PageLoading';
+import {PageLoading} from 'client/commons/PageLoading';
 
 function MyApp(props) {
   const {Component, pageProps} = props;
