@@ -118,10 +118,11 @@ export function SignInView(props: IResetPasswordView) {
             endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             로그인
           </Button>
-          <Grid container>
-            <Grid item xs>
+          <Grid container justify="flex-end">
+            {/* <Grid container> */}
+            {/* <Grid item xs>
               <Link href="/reset-password/">비밀번호를 잊으셨나요?</Link>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <Link href="/signup/">아직 계정이 없으신가요?</Link>
             </Grid>
