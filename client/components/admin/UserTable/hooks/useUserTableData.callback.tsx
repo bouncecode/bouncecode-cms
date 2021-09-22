@@ -11,7 +11,7 @@ import {
 } from '@apollo/client';
 import {useCallback} from 'react';
 import {ITableDataCallback} from '../interfaces';
-import {UsersDocument} from 'client/generated/graphql';
+import {UsersDocument, UsersQuery} from 'client/generated/graphql';
 
 export const useUserTableDataCallback = (
   options: Partial<QueryOptions<OperationVariables>> = {},
@@ -20,7 +20,7 @@ export const useUserTableDataCallback = (
   // const { enqueueSnackbar } = useSnackbar();
 
   return useCallback<ITableDataCallback>(async query => {
-    const {data} = await client.query({
+    const {data} = await client.query<UsersQuery>({
       ...options,
       query: UsersDocument,
       variables: {
@@ -34,8 +34,10 @@ export const useUserTableDataCallback = (
       // },
     });
 
+    console.log(data?.users);
+
     return {
-      data: data?.users || [],
+      data: data?.users.map(user => ({...user})) || [],
       page: query.page,
       totalCount: 100, // TODO: totalCount
     };
