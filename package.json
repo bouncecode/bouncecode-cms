@@ -46,6 +46,7 @@
     "@material-ui/core": "^4.9.13",
     "@material-ui/icons": "^4.9.1",
     "admin-bro": "^4.0.1",
+    "apollo-client": "^2.6.10",
     "apollo-server-express": "^2.13.0",
     "bcrypt": "^5.0.1",
     "class-validator": "^0.12.2",
