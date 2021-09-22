@@ -10,6 +10,7 @@ import {ApolloServer} from 'apollo-server-express';
 import {applyMiddleware} from 'graphql-middleware';
 import {buildSchemaSync, NonEmptyArray} from 'type-graphql';
 import {OpenAPI, useSofa} from 'sofa-api';
+import * as path from 'path';
 import {parseAuthHeader} from './lib/parseAuthHeader';
 import {connectDatabase} from './lib/connectDatabase';
 import multer from 'multer';
@@ -43,6 +44,7 @@ const resolvers: NonEmptyArray<Function> | NonEmptyArray<string> = [
 const schema = applyMiddleware(
   buildSchemaSync({
     resolvers,
+    emitSchemaFile: path.resolve(__dirname, 'generated/schema.gql'),
   }),
   permissions,
 );

@@ -6,10 +6,23 @@
 
 import React from 'react';
 import {SignUpView} from './views/SignUpView';
-import {useSignUpMutation} from './hooks/useSignUp.mutation';
+import {useCreateUserMutation} from 'client/generated/graphql';
+import {useSnackbar} from 'notistack';
+import Router from 'next/router';
 
 export function SignUp() {
-  const [signUpMutation] = useSignUpMutation();
+  const {enqueueSnackbar} = useSnackbar();
+
+  const [signUpMutation] = useCreateUserMutation({
+    onCompleted: () => {
+      enqueueSnackbar('회원가입 했습니다.', {variant: 'success'});
+      Router.push('/signin');
+    },
+    onError: e => {
+      console.error(e);
+      enqueueSnackbar(e.message, {variant: 'error'});
+    },
+  });
 
   const onSubmit = async values => {
     return signUpMutation({

@@ -1,0 +1,30 @@
+query Users($take: Float!, $skip: Float!, $where: UserWhereInput) {
+  users(take: $take, skip: $skip, where: $where) {
+    id
+    email
+    isAdmin
+    payload
+    createdDate
+    updatedDate
+  }
+
+  # usersCount(where: $where)
+}
+
+mutation CreateUser($data: UserCreateInput!) {
+  createUser(data: $data) {
+    id
+    email
+    isAdmin
+    payload
+    createdDate
+    updatedDate
+  }
+}
+
+mutation CreateToken($data: TokenCreateInput!) {
+  createToken(data: $data) {
+    access_token
+    refresh_token
+  }
+}

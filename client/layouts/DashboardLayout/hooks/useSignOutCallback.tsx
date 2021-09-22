@@ -6,7 +6,7 @@
 
 import {useCallback} from 'react';
 import Router from 'next/router';
-import {useApolloClient} from '@apollo/react-hooks';
+import {useApolloClient} from '@apollo/client';
 import {resetToken} from 'client/lib/token';
 
 /**

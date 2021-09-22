@@ -1,0 +1,5 @@
+query Test($message: String!) {
+  test(message: $message) {
+    message
+  }
+}

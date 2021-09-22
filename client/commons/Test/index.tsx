@@ -4,12 +4,16 @@
  * @module client.components.Test
  */
 
+import {useTestQuery} from 'client/generated/graphql';
 import React from 'react';
-import {useTestQuery} from './hooks/useTest.query';
 import {TestView} from './views/TestView';
 
 export const Test = () => {
-  const {loading, error, data} = useTestQuery();
+  const {loading, error, data} = useTestQuery({
+    variables: {
+      message: 'test',
+    },
+  });
 
   return <TestView data={data} />;
 };
