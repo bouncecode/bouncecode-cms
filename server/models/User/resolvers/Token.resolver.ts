@@ -71,7 +71,7 @@ export class TokenResolver {
   @Mutation(() => TokenObject)
   async refreshToken(@Arg('refreshToken') refreshToken: string) {
     const expiresIn = 60 * 60 * 2; // 2h
-    const user = await jwt.verify(refreshToken, CERT_PUBLIC);
+    const user: any = await jwt.verify(refreshToken, CERT_PUBLIC);
     if (user.sub !== 'refresh_token') {
       throw new Error('Invalid token');
     }

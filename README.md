@@ -20,11 +20,14 @@ docker-compose run --rm app.bouncecode-cms \
 ## 개발 환경
 
 ```bash
-# 패키지 설치
-yarn --ignore-engines
+# 패키지 설치 (Node 버전 12 이상일 경우 --ignore-engines 옵션을 추가하세요.)
+yarn
+
+# 클라이언트에서 사용하는 gql 및 hooks 생성 (client/generated/graphql.tsx)
+yarn codegen
 
 # Storybook 실행
-yarn --ignore-engines storybook
+yarn storybook
 
 # Jest 유닛 테스트
 docker-compose run --rm app.bouncecode-cms \
