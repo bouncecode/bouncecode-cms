@@ -20,7 +20,7 @@ const dev = process.env.NODE_ENV === 'development';
  *
  * @author BounceCode, Inc.
  */
-const app = next({dev, conf: {distDir: '.next'}});
+const app = next({dev});
 const handle = app.getRequestHandler();
 
 /**

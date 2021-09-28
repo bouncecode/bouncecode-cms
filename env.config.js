@@ -7,20 +7,20 @@
 
 let certs = null;
 try {
-  certs = require("./config/certs.config");
+  certs = require('./config/certs.config');
 } catch (e) {
   throw new Error(
-    "Please generate config/certs.config.js file using `npm run certs`"
+    'Please generate config/certs.config.js file using `npm run certs`',
   );
 }
 
 let dbconfig = {};
 try {
-  dbconfig = require("./config/db.config");
+  dbconfig = require('./config/db.config');
 } catch (e) {}
 
-const isDev = process.env.NODE_ENV === "development";
-const isTest = process.env.NODE_ENV === "test";
+const isDev = process.env.NODE_ENV === 'development';
+const isTest = process.env.NODE_ENV === 'test';
 
 if (isTest) {
   dbconfig = {

@@ -5,17 +5,20 @@
  */
 
 import React from 'react';
+import App from 'next/app';
 import Head from 'next/head';
 import {SnackbarProvider} from 'notistack';
 import {ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from 'client/lib/theme';
-import {withApollo} from 'client/lib/apollo';
 import {PageLoading} from 'client/commons/PageLoading';
+import {ApolloProvider} from '@apollo/client';
+import {useApollo} from 'client/lib/apolloClient';
 
 function MyApp(props) {
-  const {Component, pageProps} = props;
+  const {Component, pageProps, req} = props;
   const Layout = Component.Layout || (({children}) => <>{children}</>);
+  const apolloClient = useApollo(pageProps, req);
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -39,13 +42,29 @@ function MyApp(props) {
         <CssBaseline />
         <PageLoading />
         <SnackbarProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <ApolloProvider client={apolloClient}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ApolloProvider>
         </SnackbarProvider>
       </ThemeProvider>
     </React.Fragment>
   );
 }
 
-export default withApollo({ssr: true})(MyApp);
+MyApp.getInitialProps = async appContext => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+
+  return {
+    ...appProps,
+    ctx: {
+      req: {
+        headers: appContext.ctx.req?.headers,
+      },
+    },
+  };
+};
+
+export default MyApp;
