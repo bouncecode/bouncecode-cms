@@ -9,12 +9,14 @@
 ## 실행 방법
 
 ```bash
+# 이미지 가져오기
+docker-compose pull
+
 # 서버 실행 (빌드시 --build 옵션을 추가하세요.)
 docker-compose up
 
 # 시드 데이터 추가 (최초 관리자 계정 생성 등)
-docker-compose run --rm app.bouncecode-cms \
-  bash -c "yarn seed:run"
+docker-compose run --rm app.bouncecode-cms bash -c "yarn seed:run"
 ```
 
 ## 개발 환경
@@ -30,12 +32,16 @@ yarn codegen
 yarn storybook
 
 # Jest 유닛 테스트
-docker-compose run --rm app.bouncecode-cms \
-  bash -c "yarn test"
+docker-compose run --rm app.bouncecode-cms bash -c "yarn test"
 
 # Storybook, Jest, Typedoc 문서화
-docker-compose run --rm app.bouncecode-cms \
-  bash -c "yarn docs"
+docker-compose run --rm app.bouncecode-cms bash -c "yarn docs"
+```
+
+## 프로덕션 환경
+
+```
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
 
 ## 관리자 설정

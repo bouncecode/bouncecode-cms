@@ -1,0 +1,5 @@
+version: '3.7'
+
+services:
+  app.bouncecode-cms:
+    command: "/bin/sh -c 'yarn next build && yarn start'"

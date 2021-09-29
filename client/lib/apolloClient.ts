@@ -1,24 +1,24 @@
-import { useMemo } from "react";
-import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import merge from "deepmerge";
-import isEqual from "lodash/isEqual";
-import { storeToken, parseCookies } from "client/lib/token";
-import { PORT } from "../../env.config";
-import jwt from "jsonwebtoken";
+import {useMemo} from 'react';
+import {ApolloClient, HttpLink, InMemoryCache, gql} from '@apollo/client';
+import {setContext} from '@apollo/client/link/context';
+import merge from 'deepmerge';
+import isEqual from 'lodash/isEqual';
+import {storeToken, parseCookies} from 'client/lib/token';
+import {PORT} from '../../env.config';
+import jwt from 'jsonwebtoken';
 
-export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
+export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
 
 let apolloClient;
 
 function createApolloClient(req) {
-  const isSsr = typeof window === "undefined";
-  const uri = isSsr ? `http://localhost:${PORT}/graphql` : "/graphql";
+  const isSsr = typeof window === 'undefined';
+  const uri = isSsr ? `http://localhost:${PORT}/graphql` : '/graphql';
 
-  const getToken = async ({ access_token, refresh_token }) => {
+  const getToken = async ({access_token, refresh_token}) => {
     if (access_token) {
       try {
-        const { exp } = jwt.decode(access_token);
+        const {exp}: any = jwt.decode(access_token);
 
         if (Date.now() < (exp - 600) * 1000) {
           return access_token;
@@ -28,8 +28,8 @@ function createApolloClient(req) {
 
     if (refresh_token) {
       const res = await fetch(uri, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           operationName: null,
           query: gql`
@@ -45,25 +45,25 @@ function createApolloClient(req) {
         }),
       });
 
-      const { data } = await res.json();
+      const {data} = await res.json();
       const access_token = data.token.access_token;
-      storeToken(null, { access_token });
+      storeToken(null, {access_token});
       return access_token;
     }
   };
 
   const httpLink = new HttpLink({
     uri, // Server URL (must be absolute)
-    credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
+    credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
     fetch,
   });
 
-  const authLink = setContext(async (_, { headers }) => {
-    const { access_token, refresh_token } = parseCookies(req);
+  const authLink = setContext(async (_, {headers}) => {
+    const {access_token, refresh_token} = parseCookies(req);
     let token;
 
     try {
-      token = await getToken({ access_token, refresh_token });
+      token = await getToken({access_token, refresh_token});
     } catch (e) {}
 
     if (token) {
@@ -74,7 +74,7 @@ function createApolloClient(req) {
         },
       };
     } else {
-      return { headers };
+      return {headers};
     }
   });
 
@@ -101,9 +101,7 @@ export function initializeApollo(initialState = null, req = null) {
       // combine arrays using object equality (like in sets)
       arrayMerge: (destinationArray, sourceArray) => [
         ...sourceArray,
-        ...destinationArray.filter((d) =>
-          sourceArray.every((s) => !isEqual(d, s))
-        ),
+        ...destinationArray.filter(d => sourceArray.every(s => !isEqual(d, s))),
       ],
     });
 
@@ -111,7 +109,7 @@ export function initializeApollo(initialState = null, req = null) {
     _apolloClient.cache.restore(data);
   }
   // For SSG and SSR always create a new Apollo Client
-  if (typeof window === "undefined") return _apolloClient;
+  if (typeof window === 'undefined') return _apolloClient;
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient;
 
