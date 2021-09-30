@@ -1,0 +1,25 @@
+query CommentMyEmotion($where: CommentUniqueWhereInput!) {
+  commentMyEmotion(where: $where) {
+    id
+    emotion
+  }
+}
+
+mutation CommentEmotion(
+  $where: CommentUniqueWhereInput!
+  $data: CommentEmotionInput!
+) {
+  commentEmotion(where: $where, data: $data) {
+    id
+    like
+    unlike
+  }
+}
+
+mutation CommentEmotionUndo($where: CommentUniqueWhereInput!) {
+  commentEmotionUndo(where: $where) {
+    id
+    like
+    unlike
+  }
+}

@@ -21,7 +21,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 // Styles
 import {useAdminLayoutViewStyles} from './styles';
-import {IMeQueryObject} from '../../hooks/useMeQuery';
+import {MeQuery} from 'client/generated/graphql';
 
 export interface IAdminLayoutModule {
   /**
@@ -32,7 +32,7 @@ export interface IAdminLayoutModule {
   /**
    * 유저 정보가 담겨있는 IMeQueryObject 여야합니다.
    */
-  data: IMeQueryObject;
+  data: MeQuery;
 
   /**
    * 로그아웃 버튼을 클릭했을 때 실행하는 함수입니다.

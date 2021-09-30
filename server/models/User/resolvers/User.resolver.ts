@@ -7,7 +7,7 @@
  * @preferred
  */
 
-import {Resolver, Query, Mutation, Ctx, Arg} from 'type-graphql';
+import {Resolver, Query, Mutation, Ctx, Arg, Int} from 'type-graphql';
 import {UserEntity} from '../entities/User.entity';
 import {UserObject} from '../objects/User.object';
 import {UserCreateInput} from '../inputs/UserCreate.input';
@@ -64,8 +64,8 @@ export class UserResolver {
   @Query(() => [UserObject])
   async users(
     @Arg('where', {nullable: true}) where: UserWhereInput,
-    @Arg('skip') skip: number,
-    @Arg('take') take: number,
+    @Arg('skip', () => Int) skip: number,
+    @Arg('take', () => Int) take: number,
   ) {
     try {
       return await UserEntity.find({

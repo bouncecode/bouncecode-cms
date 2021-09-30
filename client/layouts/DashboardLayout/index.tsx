@@ -9,10 +9,10 @@ import Router from 'next/router';
 import {useSnackbar} from 'notistack';
 import {AdminLayoutDrawerModule} from './modules/DrawerModule';
 import {useSignOutCallback} from './hooks/useSignOutCallback';
-import {useMeQuery} from './hooks/useMeQuery';
 import {PageLoadingView} from '../../commons/PageLoading/views/PageLoadingView';
 import {AdminLayoutModule} from './modules/LayoutModule';
 import {IComponent} from './interfaces';
+import {useMeQuery} from 'client/generated/graphql';
 
 const AdminLayout: IComponent = ({children}) => {
   const handleLogout = useSignOutCallback();

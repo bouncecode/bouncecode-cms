@@ -14,6 +14,8 @@ import theme from 'client/lib/theme';
 import {PageLoading} from 'client/commons/PageLoading';
 import {ApolloProvider} from '@apollo/client';
 import {useApollo} from 'client/lib/apolloClient';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 function MyApp(props) {
   const {Component, pageProps, req} = props;
@@ -42,11 +44,13 @@ function MyApp(props) {
         <CssBaseline />
         <PageLoading />
         <SnackbarProvider>
-          <ApolloProvider client={apolloClient}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </ApolloProvider>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <ApolloProvider client={apolloClient}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </ApolloProvider>
+          </MuiPickersUtilsProvider>
         </SnackbarProvider>
       </ThemeProvider>
     </React.Fragment>

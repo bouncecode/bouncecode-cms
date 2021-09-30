@@ -16,8 +16,13 @@ import {
   AfterLoad,
   DeleteDateColumn,
   VersionColumn,
+  OneToMany,
+  JoinTable,
+  ManyToMany,
 } from 'typeorm';
 import bcrypt from 'bcrypt';
+import {ChatMessageEntity} from '../../Chat/entities/ChatMessage.entity';
+import {ChatRoomEntity} from '../../Chat/entities/ChatRoom.entity';
 
 /**
  * 데이터베이스와 연결된 Entity 입니다.
@@ -43,6 +48,18 @@ export class UserEntity extends BaseEntity {
 
   @Column('json', {nullable: true})
   payload?: any;
+
+  @ManyToMany(
+    () => ChatRoomEntity,
+    chatRoom => chatRoom.attendees,
+  )
+  chatRooms: ChatRoomEntity[];
+
+  @OneToMany(
+    () => ChatMessageEntity,
+    chatMessage => chatMessage.user,
+  )
+  chatMessages: ChatMessageEntity[];
 
   @CreateDateColumn()
   createdDate: Date;

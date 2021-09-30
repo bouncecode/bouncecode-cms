@@ -20,6 +20,7 @@
     "downlevelIteration": true,
     "paths": {
       "client/*": ["client/*"],
+      "server/*": ["server/*"],
       "config/*": ["config/*"]
     }
   },

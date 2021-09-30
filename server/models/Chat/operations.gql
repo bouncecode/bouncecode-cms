@@ -1,0 +1,28 @@
+# query ChatRooms($where: ChatRoomWhereInput!, $skip: number, $take: number) {
+#   chatRooms(where: $where, skip: $skip, take: $take) {
+#     id
+#     user
+#     room
+#     message
+#     payload
+#     version
+#     createdDate
+#     updatedDate
+#     deletedDate
+#   }
+# }
+
+# mutation CreateChatRoom($data: ChatRoomCreateInput!) {
+#   createChatRoom(data: $data)
+# }
+
+# mutation UpdateChatRoom(
+#   $where: ChatRoomUniqueWhereInput!
+#   $data: ChatRoomCreateInput!
+# ) {
+#   updateChatRoom(data: $data)
+# }
+
+# mutation DeleteChatRoom($where: ChatRoomUniqueWhereInput!) {
+#   deleteChatRoom(data: $data)
+# }

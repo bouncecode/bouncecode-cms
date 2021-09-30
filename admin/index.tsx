@@ -3,24 +3,19 @@ import AdminBroExpress from '@admin-bro/express';
 import {createConnection} from 'typeorm';
 import {Database, Resource} from '@admin-bro/typeorm';
 import authenticate from './authenticate';
-
-import userResource from './resources/user.resource';
+import UserResource, {labels as userLabels} from './resources/user.resource';
+import ChatResource, {labels as chatLabels} from './resources/chat.resource';
 
 AdminBro.registerAdapter({Database, Resource});
 
 export default async function useAdminBroExpress(expressApp: any) {
-  const connection = await createConnection();
+  await createConnection();
 
-  const userNavigation = {name: '사용자'};
+  const chatResources = await ChatResource();
+  const userResources = await UserResource();
 
   const adminBro = new AdminBro({
-    resources: [
-      ...[await userResource(connection)].map((resource: any) => {
-        resource.options = resource.options || {};
-        resource.options.navigation = userNavigation;
-        return resource;
-      }),
-    ],
+    resources: [...userResources, ...chatResources],
     locale: {
       language: 'ko',
       translations: {
@@ -30,6 +25,8 @@ export default async function useAdminBroExpress(expressApp: any) {
         labels: {
           loginWelcome: 'BounceCode CMS',
           UserEntity: '사용자 관리',
+          ...userLabels,
+          ...chatLabels,
         },
       },
     },

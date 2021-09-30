@@ -1,4 +1,15 @@
-query Users($take: Float!, $skip: Float!, $where: UserWhereInput) {
+query Me {
+  me {
+    id
+    email
+    isAdmin
+    payload
+    createdDate
+    updatedDate
+  }
+}
+
+query Users($where: UserWhereInput, $take: Int!, $skip: Int!) {
   users(take: $take, skip: $skip, where: $where) {
     id
     email

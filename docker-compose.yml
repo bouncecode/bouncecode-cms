@@ -8,6 +8,7 @@ services:
     volumes:
       - ./package.json:/usr/src/app/package.json
       - ./ormconfig.js:/usr/src/app/ormconfig.js
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
       - ./docs:/usr/src/app/docs
       - ./pages:/usr/src/app/pages
       - ./client:/usr/src/app/client

@@ -1,0 +1,45 @@
+query Comments($where: CommentWhereInput!, $skip: Int, $take: Int) {
+  comments(where: $where, skip: $skip, take: $take) {
+    id
+    postId
+    parentId
+    text
+    like
+    unlike
+    payload
+    user {
+      id
+      email
+      isAdmin
+      payload
+      createdDate
+      updatedDate
+    }
+    version
+    createdDate
+    updatedDate
+  }
+}
+
+mutation CommentCreate($data: CommentCreateInput!) {
+  commentCreate(data: $data) {
+    id
+  }
+}
+
+mutation CommentUpdate(
+  $where: CommentUniqueWhereInput!
+  $data: CommentUpdateInput!
+) {
+  commentUpdate(where: $where, data: $data) {
+    id
+    postId
+    parentId
+    text
+    payload
+  }
+}
+
+mutation CommentDelete($where: CommentUniqueWhereInput!) {
+  commentDelete(where: $where)
+}

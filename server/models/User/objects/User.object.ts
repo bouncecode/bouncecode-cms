@@ -4,7 +4,7 @@
  * @module server.models.User.objects
  */
 
-import {ObjectType, Field, ID} from 'type-graphql';
+import {ObjectType, Field, ID, Int} from 'type-graphql';
 import GraphQLJSON from 'graphql-type-json';
 
 /**
@@ -14,7 +14,7 @@ import GraphQLJSON from 'graphql-type-json';
  */
 @ObjectType()
 export class UserObject {
-  @Field()
+  @Field(() => Int)
   id: number;
 
   @Field()
@@ -31,7 +31,4 @@ export class UserObject {
 
   @Field()
   updatedDate: Date;
-
-  @Field()
-  deletedDate: Date;
 }

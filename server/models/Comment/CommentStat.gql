@@ -1,0 +1,9 @@
+query CommentStat($where: CommentStatUniqueWhereInput!) {
+  commentStat(where: $where) {
+    postId
+    count
+    version
+    createdDate
+    updatedDate
+  }
+}
