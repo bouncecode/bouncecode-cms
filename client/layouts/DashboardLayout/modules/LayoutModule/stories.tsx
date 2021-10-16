@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.AdminLayout.views
  */
 
 import * as React from 'react';
@@ -24,6 +23,8 @@ export const LayoutModule = () => {
       id: 1,
       email: text('Email', 'test@example.com'),
       isAdmin: false,
+      createdDate: new Date(),
+      updatedDate: new Date(),
     },
   };
 

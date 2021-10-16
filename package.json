@@ -2,7 +2,7 @@
   "name": "bouncecode-cms",
   "version": "0.1.0",
   "description": "BounceCode's content management system.",
-  "main": "index.js",
+  "main": "server/index.js",
   "engines": {
     "node": "16"
   },
@@ -24,10 +24,10 @@
     "lint": "tslint --project tsconfig.json",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
     "storybook": "start-storybook",
-    "docs": "npm run test && npm run docs:typedoc && npm run docs:storybook",
+    "docs": "npm run docs:storybook && npm run docs:typedoc && npm run test",
     "docs:storybook": "build-storybook -c .storybook -o docs/uis",
-    "docs:typedoc": "typedoc --media media --out docs/apis --plugin typedoc-plugin-external-module-name server client pages",
-    "test": "NODE_ENV=test jest",
+    "docs:typedoc": "typedoc server client pages",
+    "test": "jest",
     "seed:config": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./node_modules/typeorm-seeding/dist/cli.js config",
     "seed:run": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./node_modules/typeorm-seeding/dist/cli.js seed",
     "schema:drop": "ts-node --compiler-options=\"{\\\"module\\\": \\\"commonjs\\\"}\" ./node_modules/typeorm/cli.js schema:drop",
@@ -89,7 +89,7 @@
     "type-graphql": "^1.0.0-rc.1",
     "typeorm": "^0.2.24",
     "typeorm-seeding": "^1.6.1",
-    "typescript": "~3.8",
+    "typescript": "~4.2.4",
     "yup": "^0.28.5"
   },
   "devDependencies": {
@@ -115,7 +115,7 @@
     "jest-html-reporters": "^1.2.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-jest": "^26.0.0",
-    "typedoc": "^0.17.7",
-    "typedoc-plugin-external-module-name": "^3.1.0"
+    "typedoc": "^0.17.8",
+    "typedoc-plugin-external-module-name": "^4.0.6"
   }
 }

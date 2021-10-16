@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module pages.admin.settings
  */
 
 import React from 'react';

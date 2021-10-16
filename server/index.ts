@@ -3,7 +3,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server
  * @preferred
  */
 

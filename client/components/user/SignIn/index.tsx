@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.SignIn
  */
 
 import {useApolloClient} from '@apollo/client';

@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.ResetPassword.hooks
  */
 
 import {useCallback} from 'react';

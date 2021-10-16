@@ -70,16 +70,57 @@
 				</a>
 				<p>궁금하신게 있으시면 언제든 말씀해주세요.</p>
 				<p>카카오톡 오픈채팅: <a href="https://open.kakao.com/o/ghJjrKbb">https://open.kakao.com/o/ghJjrKbb</a></p>
-				<a href="#서버-시작" id="서버-시작" style="color: inherit; text-decoration: none;">
-					<h2>서버 시작</h2>
+				<a href="#개발-환경" id="개발-환경" style="color: inherit; text-decoration: none;">
+					<h2>개발 환경</h2>
 				</a>
-				<pre><code class="language-bash">docker-compose up --build</code></pre>
-				<a href="#관리자-추가" id="관리자-추가" style="color: inherit; text-decoration: none;">
-					<h2>관리자 추가</h2>
+				<pre><code class="language-bash"><span class="hljs-comment"># DB 실행</span>
+docker-compose up
+
+<span class="hljs-comment"># 패키지 설치</span>
+yarn
+
+<span class="hljs-comment"># 서버 실행</span>
+yarn dev
+
+<span class="hljs-comment"># 시드 데이터 추가 (최초 관리자 계정 생성 등)</span>
+yarn seed:run
+
+<span class="hljs-comment"># 클라이언트에서 사용하는 gql 및 hooks 생성 (client/generated/graphql.tsx)</span>
+yarn codegen
+
+<span class="hljs-comment"># Storybook 실행</span>
+yarn storybook
+
+<span class="hljs-comment"># Jest 유닛 테스트</span>
+yarn <span class="hljs-built_in">test</span>
+
+<span class="hljs-comment"># # Jest 유닛 테스트</span>
+<span class="hljs-comment"># docker-compose run --rm app.bouncecode-cms bash -c &quot;yarn test&quot;</span>
+
+<span class="hljs-comment"># # Storybook, Jest, Typedoc 문서화</span>
+<span class="hljs-comment"># docker-compose run --rm app.bouncecode-cms bash -c &quot;yarn docs&quot;</span></code></pre>
+				<a href="#프로덕션-환경" id="프로덕션-환경" style="color: inherit; text-decoration: none;">
+					<h2>프로덕션 환경</h2>
 				</a>
-				<pre><code class="language-bash"><span class="hljs-comment"># 회원가입 후 실행하셔야합니다.</span>
-docker-compose run app \
-  bash -c <span class="hljs-string">"yarn admin:add --email=tpnet3@gmail.com"</span></code></pre>
+				<pre><code class="language-bash"><span class="hljs-comment"># 이미지 가져오기</span>
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
+
+<span class="hljs-comment"># DB 및 서버 실행</span>
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+<span class="hljs-comment"># 시드 데이터 추가 (최초 관리자 계정 생성 등)</span>
+docker-compose run --rm app.bouncecode-cms bash -c <span class="hljs-string">&quot;yarn seed:run&quot;</span></code></pre>
+				<a href="#관리자-설정" id="관리자-설정" style="color: inherit; text-decoration: none;">
+					<h2>관리자 설정</h2>
+				</a>
+				<pre><code class="language-bash"><span class="hljs-comment"># 관리자 추가</span>
+docker-compose run --rm app.bouncecode-cms \
+  bash -c <span class="hljs-string">&quot;yarn admin:create --email=tpnet3@gmail.com --password=PASSWORD&quot;</span>
+
+
+<span class="hljs-comment"># 관리자로 전환 (회원가입 된 상태여야 합니다.)</span>
+docker-compose run --rm app.bouncecode-cms \
+  bash -c <span class="hljs-string">&quot;yarn admin:add --email=tpnet3@gmail.com&quot;</span></code></pre>
 				<a href="#스크린샷" id="스크린샷" style="color: inherit; text-decoration: none;">
 					<h2>스크린샷</h2>
 				</a>
@@ -98,23 +139,86 @@ docker-compose run app \
 					<li class="label tsd-is-external">
 						<span>Internals</span>
 					</li>
-					<li class=" tsd-kind-module tsd-is-not-exported">
+					<li class=" tsd-kind-module">
 						<a href="modules/client.html">client</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_commons_button.html">client/commons/<wbr>Button</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_commons_link.html">client/commons/<wbr>Link</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_commons_pageloading.html">client/commons/<wbr>Page<wbr>Loading</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_commons_test.html">client/commons/<wbr>Test</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_components_admin.html">client/components/admin</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_components_comment.html">client/components/comment</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_components_user.html">client/components/user</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_generated.html">client/generated</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_layouts_dashboardlayout.html">client/layouts/<wbr>Dashboard<wbr>Layout</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/client_lib.html">client/lib</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/pages.html">pages</a>
 					</li>
-					<li class=" tsd-kind-module tsd-is-not-exported">
+					<li class=" tsd-kind-module">
+						<a href="modules/pages_dashboard.html">pages/dashboard</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/pages_examples.html">pages/examples</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/server.html">server</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_lib.html">server/lib</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_models_chat.html">server/models/<wbr>Chat</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_models_comment.html">server/models/<wbr>Comment</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_models_config.html">server/models/<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_models_test.html">server/models/<wbr>Test</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_models_user.html">server/models/<wbr>User</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/server_permissions.html">server/permissions</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_env_config_.html">&quot;env.config&quot;</a>
+						<a href="modules/admin.html">admin</a>
 					</li>
 					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_seeds_.html">&quot;seeds&quot;</a>
+						<a href="modules/admin_resources.html">admin/resources</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/config.html">config</a>
+					</li>
+					<li class=" tsd-kind-module tsd-is-external">
+						<a href="modules/root.html">root</a>
 					</li>
 				</ul>
 			</nav>
@@ -130,14 +234,21 @@ docker-compose run app \
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
 		</div>
 	</div>
@@ -147,6 +258,5 @@ docker-compose run app \
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ */
 import {TestResolver} from './Test.resolver';
 
 describe('Test', () => {

@@ -1,0 +1,5 @@
+{
+  "out": "docs/apis",
+  "media": "media",
+  "exclude": ["./node_modules"]
+}

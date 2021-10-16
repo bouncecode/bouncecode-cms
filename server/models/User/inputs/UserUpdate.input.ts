@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.User.inputs
  */
 
 import {Field, InputType} from 'type-graphql';

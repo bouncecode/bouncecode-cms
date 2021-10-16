@@ -4,8 +4,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.permissions
- * @preferred
  */
 
 import {deny, allow, rule, shield, and, or, not} from 'graphql-shield';

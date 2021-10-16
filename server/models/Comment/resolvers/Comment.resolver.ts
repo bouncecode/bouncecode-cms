@@ -3,8 +3,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Test.resolvers
- * @preferred
  */
 
 import {Context} from '../../../express';

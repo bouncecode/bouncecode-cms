@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.Link.views
  */
 
 /* eslint-disable jsx-a11y/anchor-has-content */

@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Config.entities
  */
 
 import {getConnection} from 'typeorm';

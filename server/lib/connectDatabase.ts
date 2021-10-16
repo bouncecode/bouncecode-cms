@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.lib
  */
 
 import {createConnection, getConnectionManager, BaseEntity} from 'typeorm';
