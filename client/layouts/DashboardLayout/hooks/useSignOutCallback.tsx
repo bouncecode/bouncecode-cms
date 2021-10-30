@@ -6,8 +6,8 @@
 
 import {useCallback} from 'react';
 import Router from 'next/router';
-import {useApolloClient} from '@apollo/client';
-import {resetToken} from 'client/lib/token';
+// import {useApolloClient} from '@apollo/client';
+// import {resetToken} from 'client/lib/token';
 
 /**
  * 로그아웃합니다.
@@ -15,10 +15,10 @@ import {resetToken} from 'client/lib/token';
  * @author BounceCode, Inc.
  */
 export function useSignOutCallback() {
-  const client = useApolloClient();
+  // const client = useApolloClient();
 
   return useCallback(() => {
-    resetToken(client);
-    Router.push('/signin');
+    // resetToken(client);
+    Router.push('/logout');
   }, []);
 }
