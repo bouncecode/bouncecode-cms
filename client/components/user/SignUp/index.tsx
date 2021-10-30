@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.SignUp
  */
 
 import React from 'react';

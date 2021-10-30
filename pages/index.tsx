@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module pages
  */
 
 import React, {useEffect} from 'react';

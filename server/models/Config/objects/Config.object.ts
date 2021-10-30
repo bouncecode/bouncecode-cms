@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Config.objects
  */
 
 import {ObjectType, Field, ID} from 'type-graphql';

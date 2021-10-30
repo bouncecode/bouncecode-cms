@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Chat.entities
  */
 
 import {UserEntity} from '../../User/entities/User.entity';

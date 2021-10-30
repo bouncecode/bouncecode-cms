@@ -5,6 +5,10 @@ const path = require('path');
 
 module.exports = withPlugins([withImages], {
   webpack(config, options) {
+    config.node = {
+      fs: 'empty',
+    };
+
     config.resolve.alias['client'] = path.resolve(__dirname, 'client');
     config.resolve.alias['config'] = path.resolve(__dirname, 'config');
 

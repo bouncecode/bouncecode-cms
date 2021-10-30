@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.SignUp.views
  */
 
 import {makeStyles} from '@material-ui/core/styles';

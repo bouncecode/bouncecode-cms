@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Comment.objects
  */
 import GraphQLJSON from 'graphql-type-json';
 import {UserObject} from '../../User/objects/User.object';

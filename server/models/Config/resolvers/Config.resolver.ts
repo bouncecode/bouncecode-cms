@@ -3,8 +3,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Config.resolvers
- * @preferred
  */
 
 import {Resolver, Query, Mutation, Ctx, Arg} from 'type-graphql';

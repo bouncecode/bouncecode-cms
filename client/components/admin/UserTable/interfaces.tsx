@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.commons
  */
 
 import {QueryResult, Query} from 'material-table';

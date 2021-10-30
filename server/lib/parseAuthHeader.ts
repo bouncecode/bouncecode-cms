@@ -1,11 +1,10 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.lib
  */
 
-import jwt, { JwtPayload } from "jsonwebtoken";
-import { CERT_PUBLIC } from "../../env.config";
+import jwt, {JwtPayload} from 'jsonwebtoken';
+import {CERT_PUBLIC} from '../../env.config';
 
 /**
  * 사용자정보를 인증하기 위한 파일입니다.
@@ -13,11 +12,11 @@ import { CERT_PUBLIC } from "../../env.config";
  *
  * @author BounceCode, Inc.
  */
-export const parseAuthHeader = async (authHeader = "") => {
+export const parseAuthHeader = async (authHeader = '') => {
   try {
-    const token = authHeader.replace(/Bearer /i, "");
+    const token = authHeader.replace(/Bearer /i, '');
     const jwtObj = await jwt.verify(token, CERT_PUBLIC);
-    if (jwtObj.sub === "access_token") return jwtObj as JwtPayload;
+    if (jwtObj.sub === 'access_token') return jwtObj as JwtPayload;
   } catch (e) {}
   return null;
 };

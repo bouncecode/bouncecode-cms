@@ -3,8 +3,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- *
- * @beta
  */
 
 import {Connection} from 'typeorm';

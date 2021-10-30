@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.Comment.objects
  */
 import {ObjectType, Field, Int} from 'type-graphql';
 

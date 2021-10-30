@@ -2,4 +2,34 @@ version: '3.7'
 
 services:
   app.bouncecode-cms:
+    build: .
+    image: tpnet3/bouncecode-cms:latest
+    restart: on-failure
+    volumes:
+      - ./package.json:/usr/src/app/package.json
+      - ./ormconfig.js:/usr/src/app/ormconfig.js
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
+      - ./docs:/usr/src/app/docs
+      - ./pages:/usr/src/app/pages
+      - ./client:/usr/src/app/client
+      - ./server:/usr/src/app/server
+      - ./scripts:/usr/src/app/scripts
+      - ./public:/usr/src/app/public
+      - ./uploads:/usr/src/app/uploads
+      - ./config:/usr/src/app/config
+      - ./admin:/usr/src/app/admin
     command: "/bin/sh -c 'yarn next build && yarn start'"
+    ports:
+      - 8080:8080
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      ADMIN_EMAIL: admin
+      ADMIN_PASSWORD: password
+      DB_HOST: postgres.bouncecode-cms
+      DB_PORT: 5432
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '200k'
+        max-file: '10'

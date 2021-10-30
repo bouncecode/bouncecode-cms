@@ -4,6 +4,7 @@
  * @author BounceCode, Inc.
  * @packageDocumentation
  */
+require('dotenv').config();
 
 let certs = null;
 try {

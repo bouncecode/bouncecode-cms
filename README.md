@@ -6,24 +6,20 @@
 
 카카오톡 오픈채팅: https://open.kakao.com/o/ghJjrKbb
 
-## 실행 방법
-
-```bash
-# 이미지 가져오기
-docker-compose pull
-
-# 서버 실행 (빌드시 --build 옵션을 추가하세요.)
-docker-compose up
-
-# 시드 데이터 추가 (최초 관리자 계정 생성 등)
-docker-compose run --rm app.bouncecode-cms bash -c "yarn seed:run"
-```
-
 ## 개발 환경
 
 ```bash
-# 패키지 설치 (Node 버전 12 이상일 경우 --ignore-engines 옵션을 추가하세요.)
+# DB 실행
+docker-compose up
+
+# 패키지 설치
 yarn
+
+# 서버 실행
+yarn dev
+
+# 시드 데이터 추가 (최초 관리자 계정 생성 등)
+yarn seed:run
 
 # 클라이언트에서 사용하는 gql 및 hooks 생성 (client/generated/graphql.tsx)
 yarn codegen
@@ -32,16 +28,26 @@ yarn codegen
 yarn storybook
 
 # Jest 유닛 테스트
-docker-compose run --rm app.bouncecode-cms bash -c "yarn test"
+yarn test
 
-# Storybook, Jest, Typedoc 문서화
-docker-compose run --rm app.bouncecode-cms bash -c "yarn docs"
+# # Jest 유닛 테스트
+# docker-compose run --rm app.bouncecode-cms bash -c "yarn test"
+
+# # Storybook, Jest, Typedoc 문서화
+# docker-compose run --rm app.bouncecode-cms bash -c "yarn docs"
 ```
 
 ## 프로덕션 환경
 
-```
+```bash
+# 이미지 가져오기
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull
+
+# DB 및 서버 실행
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+# 시드 데이터 추가 (최초 관리자 계정 생성 등)
+docker-compose run --rm app.bouncecode-cms bash -c "yarn seed:run"
 ```
 
 ## 관리자 설정

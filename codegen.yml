@@ -1,11 +1,11 @@
 overwrite: true
-schema: 'server/generated/schema.gql'
-documents: 'server/models/**/*.gql'
+schema: http://localhost:8080/graphql
+documents: server/models/**/*.gql
 generates:
   client/generated/graphql.tsx:
     plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
     config:
       withHooks: true

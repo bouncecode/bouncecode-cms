@@ -1,7 +1,6 @@
 /**
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module client.components.ResetPassword.views
  */
 
 import * as React from 'react';

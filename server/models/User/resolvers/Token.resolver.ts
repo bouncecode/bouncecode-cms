@@ -3,8 +3,6 @@
  *
  * @author BounceCode, Inc.
  * @packageDocumentation
- * @module server.models.User.resolvers
- * @preferred
  */
 
 import jwt from 'jsonwebtoken';
