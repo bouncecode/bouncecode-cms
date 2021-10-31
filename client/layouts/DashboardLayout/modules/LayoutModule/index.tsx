@@ -3,7 +3,8 @@
  * @packageDocumentation
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useRouter} from 'next/router';
 
 // Material Core
 import {useTheme} from '@material-ui/core/styles';
@@ -49,12 +50,25 @@ export interface IAdminLayoutModule {
  */
 export function AdminLayoutModule(props: IAdminLayoutModule) {
   const theme = useTheme();
+  const router = useRouter();
   const classes = useAdminLayoutViewStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  useEffect(() => {
+    const routeChangeComplete = () => {
+      setMobileOpen(false);
+    };
+
+    router.events.on('routeChangeComplete', routeChangeComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', routeChangeComplete);
+    };
+  }, [router.events]);
 
   return (
     <div className={classes.root}>
