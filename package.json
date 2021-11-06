@@ -21,7 +21,7 @@
     "admin:create": "ts-node -r tsconfig-paths/register scripts/admin/createAdmin.ts",
     "admin:add": "ts-node -r tsconfig-paths/register scripts/admin/addAdmin.ts",
     "admin:reset": "ts-node -r tsconfig-paths/register scripts/admin/resetAdmin.ts",
-    "lint": "tslint --project tsconfig.json",
+    "lint": "tsc --noEmit",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
     "storybook": "start-storybook",
     "docs": "npm run docs:storybook && npm run docs:typedoc && npm run test",
