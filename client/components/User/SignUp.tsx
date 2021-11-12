@@ -9,7 +9,7 @@ import {useCreateUserMutation} from 'client/generated/graphql';
 import {useSnackbar} from 'notistack';
 import Router from 'next/router';
 
-export function SignUp() {
+function SignUp() {
   const {enqueueSnackbar} = useSnackbar();
 
   const [signUpMutation] = useCreateUserMutation({
@@ -36,3 +36,5 @@ export function SignUp() {
 
   return <SignUpView onSubmit={onSubmit} />;
 }
+
+export default SignUp;

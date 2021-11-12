@@ -11,7 +11,7 @@ import {useSnackbar} from 'notistack';
 import React from 'react';
 import {SignInView} from './views/SignInView';
 
-export function SignIn() {
+function SignIn() {
   const client = useApolloClient();
   const {enqueueSnackbar} = useSnackbar();
 
@@ -38,3 +38,5 @@ export function SignIn() {
 
   return <SignInView onSubmit={onSubmit} />;
 }
+
+export default SignIn;

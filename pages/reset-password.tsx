@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {ResetPassword} from 'client/components/user/ResetPassword';
+import ResetPassword from 'client/components/User/ResetPassword';
 
 function ResetPasswordPage() {
   return <ResetPassword />;

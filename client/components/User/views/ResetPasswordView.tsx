@@ -11,9 +11,13 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useResetPasswordViewFormik} from '../hooks/useResetPasswordView.formik';
-import {useResetPasswordViewStyles} from '../styles/ResetPasswordView.styles';
-import {Link} from '../../../../commons/Link';
+import {Link} from 'client/commons/Link';
 import {FormikValues, FormikHelpers} from 'formik';
+import {
+  UserForm,
+  UserFormPaper,
+  UserFormSubmit,
+} from '../styles/UserForm.styles';
 
 export interface IResetPasswordView {
   /**
@@ -29,7 +33,6 @@ export interface IResetPasswordView {
  * 비밀번호 찾기 화면입니다.
  */
 export function ResetPasswordView(props: IResetPasswordView) {
-  const classes = useResetPasswordViewStyles();
   const {
     values,
     handleSubmit,
@@ -41,14 +44,14 @@ export function ResetPasswordView(props: IResetPasswordView) {
 
   return (
     <Container maxWidth="xs">
-      <div className={classes.paper}>
+      <UserFormPaper>
         {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon color="primary" />
         </Avatar> */}
         <Typography component="h1" variant="h5">
           비밀번호 찾기
         </Typography>
-        <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <UserForm onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -67,17 +70,16 @@ export function ResetPasswordView(props: IResetPasswordView) {
               />
             </Grid>
           </Grid>
-          <Button
+          <UserFormSubmit
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             size="large"
-            className={classes.submit}
             disabled={isSubmitting}
             endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             비밀번호 찾기
-          </Button>
+          </UserFormSubmit>
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/signin/" variant="body2">
@@ -85,8 +87,8 @@ export function ResetPasswordView(props: IResetPasswordView) {
               </Link>
             </Grid>
           </Grid>
-        </form>
-      </div>
+        </UserForm>
+      </UserFormPaper>
     </Container>
   );
 }

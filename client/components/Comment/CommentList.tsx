@@ -10,11 +10,11 @@ import CommentItemModule from './modules/CommentItemModule';
 import usePostState from './hooks/usePostState';
 import {useCommentsQuery, useCommentStatQuery} from 'client/generated/graphql';
 
-interface ICommentDefaultListModule {
+interface ICommentList {
   postId: string;
 }
 
-function CommentDefaultListModule({postId}: ICommentDefaultListModule) {
+function CommentList({postId}: ICommentList) {
   const [post] = usePostState({id: postId});
   const {data: commentStatData} = useCommentStatQuery({
     variables: {
@@ -51,4 +51,4 @@ function CommentDefaultListModule({postId}: ICommentDefaultListModule) {
   );
 }
 
-export default CommentDefaultListModule;
+export default CommentList;

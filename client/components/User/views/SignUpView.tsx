@@ -10,10 +10,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {Link} from '../../../../commons/Link';
-import {useSignUpViewStyles} from '../styles/SignUpView.styles';
+import {Link} from 'client/commons/Link';
 import {useSignUpViewFormik} from '../hooks/useSignUpView.formik';
 import {FormikHelpers, FormikValues} from 'formik';
+import {
+  UserForm,
+  UserFormPaper,
+  UserFormSubmit,
+} from '../styles/UserForm.styles';
 
 export interface ISignUpView {
   /**
@@ -26,7 +30,6 @@ export interface ISignUpView {
 }
 
 export function SignUpView(props: ISignUpView) {
-  const classes = useSignUpViewStyles();
   const {
     values,
     handleChange,
@@ -38,14 +41,14 @@ export function SignUpView(props: ISignUpView) {
 
   return (
     <Container maxWidth="xs">
-      <div className={classes.paper}>
+      <UserFormPaper>
         {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon color="primary" />
         </Avatar> */}
         <Typography component="h1" variant="h5">
           회원가입
         </Typography>
-        <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <UserForm onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -126,24 +129,23 @@ export function SignUpView(props: ISignUpView) {
               />
             </Grid> */}
           </Grid>
-          <Button
+          <UserFormSubmit
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             size="large"
-            className={classes.submit}
             disabled={isSubmitting}
             endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             회원가입
-          </Button>
+          </UserFormSubmit>
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/signin/">이미 계정이 있으신가요?</Link>
             </Grid>
           </Grid>
-        </form>
-      </div>
+        </UserForm>
+      </UserFormPaper>
     </Container>
   );
 }

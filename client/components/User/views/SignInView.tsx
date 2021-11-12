@@ -4,27 +4,19 @@
  */
 
 import React from 'react';
-// import {
-//   GoogleLoginButton,
-//   FacebookLoginButton
-// } from "react-social-login-buttons";
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Checkbox from "@material-ui/core/Checkbox";
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {useSignInViewStyles} from '../styles/SignInView.styles';
 import {useSigninViewFormik} from '../hooks/useSignInView.formik';
-// import useSigninFacebookCallback from "src/hooks/callbacks/useSigninFacebookCallback";
-// import useSigninGoogleCallback from "src/hooks/callbacks/useSigninGoogleCallback";
-import {Link} from '../../../../commons/Link';
+import {Link} from 'client/commons/Link';
 import {FormikValues, FormikHelpers} from 'formik';
+import {
+  UserForm,
+  UserFormPaper,
+  UserFormSubmit,
+} from '../styles/UserForm.styles';
 
 export interface IResetPasswordView {
   /**
@@ -40,7 +32,6 @@ export interface IResetPasswordView {
  * 로그인 화면입니다.
  */
 export function SignInView(props: IResetPasswordView) {
-  const classes = useSignInViewStyles();
   const {
     values,
     handleSubmit,
@@ -55,7 +46,7 @@ export function SignInView(props: IResetPasswordView) {
 
   return (
     <Container maxWidth="xs">
-      <div className={classes.paper}>
+      <UserFormPaper>
         {/* <Avatar className={classes.avatar}>
           <LockOutlinedIcon color="primary" />
         </Avatar> */}
@@ -66,7 +57,7 @@ export function SignInView(props: IResetPasswordView) {
             <GoogleLoginButton onClick={googleSignIn} />
             <FacebookLoginButton onClick={facebookSignIn} />
           </div> */}
-        <form onSubmit={handleSubmit} className={classes.form} noValidate>
+        <UserForm onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -106,17 +97,16 @@ export function SignInView(props: IResetPasswordView) {
                 /> */}
             </Grid>
           </Grid>
-          <Button
+          <UserFormSubmit
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             size="large"
-            className={classes.submit}
             disabled={isSubmitting}
             endIcon={isSubmitting ? <CircularProgress size={16} /> : undefined}>
             로그인
-          </Button>
+          </UserFormSubmit>
           <Grid container justify="flex-end">
             {/* <Grid container> */}
             {/* <Grid item xs>
@@ -126,8 +116,8 @@ export function SignInView(props: IResetPasswordView) {
               <Link href="/signup/">아직 계정이 없으신가요?</Link>
             </Grid>
           </Grid>
-        </form>
-      </div>
+        </UserForm>
+      </UserFormPaper>
     </Container>
   );
 }

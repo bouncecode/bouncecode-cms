@@ -9,8 +9,12 @@ import {
   OperationVariables,
 } from '@apollo/client';
 import {useCallback} from 'react';
-import {ITableDataCallback} from '../interfaces';
 import {UsersDocument, UsersQuery} from 'client/generated/graphql';
+import {QueryResult, Query} from 'material-table';
+
+export interface ITableDataCallback {
+  (query: Query<any>): Promise<QueryResult<any>>;
+}
 
 export const useUserTableDataCallback = (
   options: Partial<QueryOptions<OperationVariables>> = {},
