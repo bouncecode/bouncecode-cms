@@ -8,7 +8,7 @@ import {useCallback} from 'react';
 import {useSnackbar} from 'notistack';
 import {FormikValues, FormikHelpers} from 'formik';
 
-export function useResetPasswordCallback() {
+function useResetPasswordSubmitCallback() {
   const {enqueueSnackbar} = useSnackbar();
 
   return useCallback(
@@ -27,3 +27,5 @@ export function useResetPasswordCallback() {
     [],
   );
 }
+
+export default useResetPasswordSubmitCallback;

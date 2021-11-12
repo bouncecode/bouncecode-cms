@@ -4,21 +4,25 @@
  */
 
 import {useEffect} from 'react';
-import {useFormik, FormikValues, FormikConfig, FormikHelpers} from 'formik';
+import {useFormik, FormikConfig, FormikValues, FormikHelpers} from 'formik';
 import * as Yup from 'yup';
 import {useSnackbar} from 'notistack';
 
 const initialValues = {
   email: '',
+  password: '',
 };
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('이메일 형식이 아닙니다.')
     .required('필수 항목입니다.'),
+  password: Yup.string()
+    .min(6, '비밀번호는 6자 이상이어야 합니다.')
+    .required('필수 항목입니다.'),
 });
 
-export function useResetPasswordViewFormik(
+function useSigninFormik(
   onSubmit: (
     values: FormikValues,
     formikHelpers: FormikHelpers<FormikValues>,
@@ -47,3 +51,5 @@ export function useResetPasswordViewFormik(
 
   return formik;
 }
+
+export default useSigninFormik;

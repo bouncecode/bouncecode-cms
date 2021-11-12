@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {SignUp} from 'client/components/User/SignUp';
+import SignUp from 'client/components/User/SignUp';
 
 function SignUpPage() {
   return <SignUp />;

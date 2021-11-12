@@ -5,9 +5,9 @@
 
 import * as React from 'react';
 import {SnackbarProvider} from 'notistack';
-import {UserTableView} from './UserTableView';
+import UserTableView from './UserTableView';
 import {withKnobs, number, object} from '@storybook/addon-knobs';
-import {ITableDataCallback} from '../hooks/useUserTableData.callback';
+import {ITableDataCallback} from '../hooks/useUserTableDataCallback';
 
 export default {
   title: 'Components/Admin',

@@ -11,13 +11,13 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {Link} from 'client/commons/Link';
-import {useSignUpViewFormik} from '../hooks/useSignUpView.formik';
+import useSignUpFormik from '../hooks/useSignUpFormik';
 import {FormikHelpers, FormikValues} from 'formik';
 import {
   UserForm,
   UserFormPaper,
   UserFormSubmit,
-} from '../styles/UserForm.styles';
+} from '../styles/UserFormStyles';
 
 export interface ISignUpView {
   /**
@@ -29,7 +29,7 @@ export interface ISignUpView {
   ) => void | Promise<any>;
 }
 
-export function SignUpView(props: ISignUpView) {
+function SignUpView(props: ISignUpView) {
   const {
     values,
     handleChange,
@@ -37,7 +37,7 @@ export function SignUpView(props: ISignUpView) {
     touched,
     errors,
     isSubmitting,
-  } = useSignUpViewFormik(props.onSubmit);
+  } = useSignUpFormik(props.onSubmit);
 
   return (
     <Container maxWidth="xs">
@@ -149,3 +149,5 @@ export function SignUpView(props: ISignUpView) {
     </Container>
   );
 }
+
+export default SignUpView;

@@ -3,8 +3,8 @@
  * @packageDocumentation
  */
 
-import {useUserTableDataCallback} from './hooks/useUserTableData.callback';
-import {UserTableView} from './views/UserTableView';
+import useUserTableDataCallback from './hooks/useUserTableDataCallback';
+import UserTableView from './views/UserTableView';
 
 function UserTable() {
   const data = useUserTableDataCallback();
@@ -12,4 +12,4 @@ function UserTable() {
   return <UserTableView data={data} />;
 }
 
-export {UserTable};
+export default UserTable;

@@ -9,14 +9,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {useSigninViewFormik} from '../hooks/useSignInView.formik';
+import useSigninFormik from '../hooks/useSignInFormik';
 import {Link} from 'client/commons/Link';
 import {FormikValues, FormikHelpers} from 'formik';
 import {
   UserForm,
   UserFormPaper,
   UserFormSubmit,
-} from '../styles/UserForm.styles';
+} from '../styles/UserFormStyles';
 
 export interface IResetPasswordView {
   /**
@@ -31,7 +31,7 @@ export interface IResetPasswordView {
 /**
  * 로그인 화면입니다.
  */
-export function SignInView(props: IResetPasswordView) {
+function SignInView(props: IResetPasswordView) {
   const {
     values,
     handleSubmit,
@@ -39,7 +39,7 @@ export function SignInView(props: IResetPasswordView) {
     errors,
     touched,
     isSubmitting,
-  } = useSigninViewFormik(props.onSubmit);
+  } = useSigninFormik(props.onSubmit);
 
   // const googleSignIn = useSigninGoogleCallback();
   // const facebookSignIn = useSigninFacebookCallback();
@@ -121,3 +121,5 @@ export function SignInView(props: IResetPasswordView) {
     </Container>
   );
 }
+
+export default SignInView;

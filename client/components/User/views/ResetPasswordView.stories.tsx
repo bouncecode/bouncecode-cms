@@ -4,7 +4,7 @@
  */
 
 import * as React from 'react';
-import {ResetPasswordView} from './ResetPasswordView';
+import ResetPasswordView from './ResetPasswordView';
 import {action} from '@storybook/addon-actions';
 import {SnackbarProvider} from 'notistack';
 

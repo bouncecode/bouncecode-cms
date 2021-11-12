@@ -11,6 +11,10 @@ import {useSnackbar} from 'notistack';
 const initialValues = {
   email: '',
   password: '',
+  passwordConfirm: '',
+  payload: {
+    displayName: '',
+  },
 };
 
 const validationSchema = Yup.object().shape({
@@ -20,9 +24,15 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, '비밀번호는 6자 이상이어야 합니다.')
     .required('필수 항목입니다.'),
+  passwordConfirm: Yup.string()
+    .oneOf([Yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
+    .required('필수 항목입니다.'),
+  payload: Yup.object().shape({
+    displayName: Yup.string().required('필수 항목입니다.'),
+  }),
 });
 
-export function useSigninViewFormik(
+function useSignUpFormik(
   onSubmit: (
     values: FormikValues,
     formikHelpers: FormikHelpers<FormikValues>,
@@ -51,3 +61,5 @@ export function useSigninViewFormik(
 
   return formik;
 }
+
+export default useSignUpFormik;

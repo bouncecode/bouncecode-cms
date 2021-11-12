@@ -5,8 +5,8 @@
 
 import React from 'react';
 import MaterialTable from 'material-table';
-import {useUserTableViewColumnsMemo} from '../hooks/useUserTableViewColumns.memo';
-import {ITableDataCallback} from '../interfaces';
+import useUserTableViewColumnsMemo from '../hooks/useUserTableViewColumnsMemo';
+import {ITableDataCallback} from '../hooks/useUserTableDataCallback';
 
 const localization = {
   header: {
@@ -24,7 +24,7 @@ export interface IUserTableView {
   data: ITableDataCallback;
 }
 
-export function UserTableView(props: IUserTableView) {
+function UserTableView(props: IUserTableView) {
   const columns = useUserTableViewColumnsMemo();
 
   return (
@@ -42,3 +42,5 @@ export function UserTableView(props: IUserTableView) {
     />
   );
 }
+
+export default UserTableView;

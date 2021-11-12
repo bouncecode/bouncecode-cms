@@ -16,7 +16,7 @@ export interface ITableDataCallback {
   (query: Query<any>): Promise<QueryResult<any>>;
 }
 
-export const useUserTableDataCallback = (
+const useUserTableDataCallback = (
   options: Partial<QueryOptions<OperationVariables>> = {},
 ) => {
   const client = useApolloClient();
@@ -46,3 +46,5 @@ export const useUserTableDataCallback = (
     };
   }, []);
 };
+
+export default useUserTableDataCallback;

@@ -6,7 +6,7 @@
 import {useMemo} from 'react';
 import {Column} from 'material-table';
 
-export function useUserTableViewColumnsMemo() {
+function useUserTableViewColumnsMemo() {
   return useMemo<Array<Column<any>>>(() => {
     return [
       {
@@ -39,3 +39,5 @@ export function useUserTableViewColumnsMemo() {
     ];
   }, []);
 }
+
+export default useUserTableViewColumnsMemo;

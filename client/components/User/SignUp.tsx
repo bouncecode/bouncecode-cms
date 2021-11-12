@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {SignUpView} from './views/SignUpView';
+import SignUpView from './views/SignUpView';
 import {useCreateUserMutation} from 'client/generated/graphql';
 import {useSnackbar} from 'notistack';
 import Router from 'next/router';
@@ -37,4 +37,4 @@ function SignUp() {
   return <SignUpView onSubmit={onSubmit} />;
 }
 
-export {SignUp};
+export default SignUp;

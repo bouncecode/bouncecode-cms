@@ -9,7 +9,7 @@ import {storeToken} from 'client/lib/token';
 import Router from 'next/router';
 import {useSnackbar} from 'notistack';
 import React from 'react';
-import {SignInView} from './views/SignInView';
+import SignInView from './views/SignInView';
 
 function SignIn() {
   const client = useApolloClient();
@@ -39,4 +39,4 @@ function SignIn() {
   return <SignInView onSubmit={onSubmit} />;
 }
 
-export {SignIn};
+export default SignIn;
