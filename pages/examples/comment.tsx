@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import CommentList from 'client/components/Comment/CommentList';
+import {CommentList} from 'client/components/Comment/CommentList';
 import {useRouter} from 'next/router';
 
 function CommentPage() {

@@ -5,7 +5,7 @@
 
 import React from 'react';
 import AdminLayout from '../../../client/layouts/DashboardLayout';
-import UserTable from '../../../client/components/User/UserTable';
+import {UserTable} from '../../../client/components/User/UserTable';
 
 function UsersPage() {
   return (

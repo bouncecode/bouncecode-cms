@@ -37,4 +37,4 @@ function SignUp() {
   return <SignUpView onSubmit={onSubmit} />;
 }
 
-export default SignUp;
+export {SignUp};

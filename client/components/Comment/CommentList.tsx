@@ -51,4 +51,4 @@ function CommentList({postId}: ICommentList) {
   );
 }
 
-export default CommentList;
+export {CommentList};

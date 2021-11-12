@@ -13,4 +13,4 @@ function ResetPassword() {
   return <ResetPasswordView onSubmit={resetPasswordCallback} />;
 }
 
-export default ResetPassword;
+export {ResetPassword};

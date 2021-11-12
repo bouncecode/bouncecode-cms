@@ -12,4 +12,4 @@ function UserTable() {
   return <UserTableView data={data} />;
 }
 
-export default UserTable;
+export {UserTable};

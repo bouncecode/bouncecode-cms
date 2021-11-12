@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import SignIn from 'client/components/User/SignIn';
+import {SignIn} from 'client/components/User/SignIn';
 
 function SignInPage() {
   return <SignIn />;

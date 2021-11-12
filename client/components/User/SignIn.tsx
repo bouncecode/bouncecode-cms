@@ -39,4 +39,4 @@ function SignIn() {
   return <SignInView onSubmit={onSubmit} />;
 }
 
-export default SignIn;
+export {SignIn};
