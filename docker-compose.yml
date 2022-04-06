@@ -5,13 +5,14 @@ services:
     image: postgres:12
     restart: always
     environment:
+      # POSTGRES_MULTIPLE_DATABASES: bouncecode
+      POSTGRES_DB: bouncecode
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: bouncecode
     volumes:
       - postgresql.bouncecode-cms:/var/lib/postgresql/data
     ports:
-      - '127.0.0.1:5432:5432' # temporary
+      - '127.0.0.1:5433:5432' # temporary
     logging:
       driver: 'json-file'
       options:

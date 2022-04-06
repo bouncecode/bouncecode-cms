@@ -5,8 +5,15 @@ const path = require('path');
 
 module.exports = withPlugins([withImages], {
   webpack(config, options) {
-    config.node = {
-      fs: 'empty',
+    config.resolve.fallback = {
+      zlib: require.resolve('browserify-zlib'),
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify'),
+      http: require.resolve('http-browserify'),
+      https: require.resolve('https-browserify'),
+      fs: false,
+      os: false,
+      tty: false,
     };
 
     config.resolve.alias['client'] = path.resolve(__dirname, 'client');
@@ -19,9 +26,9 @@ module.exports = withPlugins([withImages], {
 
       if (
         entries['main.js'] &&
-        !entries['main.js'].includes('./client/polyfills.js')
+        !entries['main.js'].includes('./src/polyfills.js')
       ) {
-        entries['main.js'].unshift('./client/polyfills.js');
+        entries['main.js'].unshift('./src/polyfills.js');
       }
 
       return entries;
@@ -30,7 +37,6 @@ module.exports = withPlugins([withImages], {
     return config;
   },
   distDir: '.next',
-  publicRuntimeConfig: envconfig,
   webpackDevMiddleware: config => {
     config.watchOptions = {
       poll: 800,

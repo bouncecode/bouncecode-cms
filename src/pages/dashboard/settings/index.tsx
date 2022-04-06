@@ -1,0 +1,23 @@
+/**
+ * @author BounceCode, Inc.
+ * @packageDocumentation
+ */
+
+import React from 'react';
+import AdminLayout from 'client/layouts/DashboardLayout';
+import {Test} from 'client/commons/Test';
+
+function SettingsPage() {
+  return (
+    <>
+      <h1>사이트 설정</h1>
+      <Test />
+    </>
+  );
+}
+
+SettingsPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <AdminLayout>{page}</AdminLayout>;
+};
+
+export default SettingsPage;
