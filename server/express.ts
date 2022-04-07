@@ -14,7 +14,6 @@ import {parseAuthHeader} from './lib/parseAuthHeader';
 import {connectDatabase} from './lib/connectDatabase';
 import multer from 'multer';
 import handleUploadToFileSystem from './lib/handleUploadToFileSystem';
-import useAdminBroExpress from '../admin';
 import permissions from './permissions';
 import './lib/firebase';
 
@@ -96,8 +95,6 @@ const server = new ApolloServer({
  */
 export default async function createExpressApp() {
   const expressApp = express();
-
-  await useAdminBroExpress(expressApp);
 
   // parse application/x-www-form-urlencoded
   expressApp.use(express.urlencoded({extended: true}));
