@@ -74,7 +74,7 @@
     "http-browserify": "^1.7.0",
     "https-browserify": "^1.0.0",
     "isomorphic-unfetch": "^3.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mkdirp": "^1.0.4",
     "mobx": "^6.3.3",
     "mobx-react-lite": "^3.2.1",
